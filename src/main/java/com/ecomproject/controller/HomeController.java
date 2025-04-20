@@ -1,2 +1,4 @@
-package com.ecomproject.controller;public class HomeController {
+package com.ecomproject.controller;
+
+public class HomeController {
 }

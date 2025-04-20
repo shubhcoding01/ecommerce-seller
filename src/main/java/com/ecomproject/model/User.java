@@ -48,5 +48,5 @@ public class User {
 
     private LocalDate endDate;
 
-    private double minimumOrderValue;
+    private double minimumOrderValue
 }

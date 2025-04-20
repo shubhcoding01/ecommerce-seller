@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -38,4 +39,14 @@ public class User {
     @ManyToMany
     @JsonIgnore
     private Set<Coupon> usedCoupons = new HashSet<>();
+
+    private String code;
+
+    private double discountPercent;
+
+    private LocalDate startDate;
+
+    private LocalDate endDate;
+
+    private double minimumOrderValue;
 }

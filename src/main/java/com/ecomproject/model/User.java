@@ -1,14 +1,13 @@
 package com.ecomproject.model;
 
 import com.ecomproject.role.UserRole;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -33,7 +32,10 @@ public class User {
 
     private UserRole role = UserRole.ROLE_CUSTOMER ;
 
+    @OneToMany
     private Set<Address> addresses = new HashSet<>();
 
-    private Set<Coupon> coupons = new HashSet<>();
+    @ManyToMany
+    @JsonIgnore
+    private Set<Coupon> usedCoupons = new HashSet<>();
 }

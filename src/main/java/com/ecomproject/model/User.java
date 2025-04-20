@@ -15,4 +15,12 @@ public class User {
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
+
+    private String email;
+
+    private String fullName;
+
+    private String phone;
+
+    private String role;
 }

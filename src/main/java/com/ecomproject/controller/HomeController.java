@@ -1,5 +1,6 @@
 package com.ecomproject.controller;
 
+import com.ecomproject.response.ApiResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -7,8 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class HomeController {
 
     @GetMapping
-    public String HomeControllerHandler()
+    public ApiResponse HomeControllerHandler()
     {
-        return "Welcome to My Ecommerce Project";
+        ApiResponse apiResponse = new ApiResponse();
+        apiResponse.setMessage("Welcome to My Ecommerce Project API");
+        return apiResponse ;
     }
 }

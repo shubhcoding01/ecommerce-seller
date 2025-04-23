@@ -40,23 +40,7 @@ public class User {
     @JsonIgnore
     private Set<Coupon> usedCoupons = new HashSet<>();
 
-//    private String code;
-//
-//    private double discountPercent;
-//
-//    private LocalDate startDate;
-//
-//    private LocalDate endDate;
-//
-//    private double minimumOrderValue;
 
-    private String code;
 
-    private double discountPercent;
 
-    private LocalDate startDate;
-
-    private LocalDate endDate;
-
-    private double minimumOrderValue;
 }

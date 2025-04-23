@@ -1,8 +1,11 @@
 package com.ecomproject.model;
 
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -12,5 +15,16 @@ import lombok.*;
 @EqualsAndHashCode
 public class Cart {
 
-    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @OneToOne
+    private User user;
+
+    private Set<CartItem> cartItems = new HashSet<>();
+
+    private double totalSellingPrice;
+
+    private  int totalItems;
 }

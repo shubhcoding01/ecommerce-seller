@@ -19,7 +19,7 @@ public class Seller {
 
     private String sellerName;
 
-    private String moblie;
+    private String mobile;
 
     @Column(unique = true, nullable = false)
     private String email;

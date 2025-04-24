@@ -1,5 +1,6 @@
 package com.ecomproject.model;
 
+import com.ecomproject.domain.PaymentStatus;
 import jakarta.persistence.*;
 import lombok.*;
 

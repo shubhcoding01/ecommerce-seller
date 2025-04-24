@@ -28,4 +28,8 @@ public class OrderItem {
     private int quantity;
 
     private Integer mrpPrice;
+
+    private Integer sellingPrice;
+
+    private Long userId;
 }

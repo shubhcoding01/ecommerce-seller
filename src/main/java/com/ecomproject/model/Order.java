@@ -3,6 +3,7 @@ package com.ecomproject.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,4 +38,16 @@ public class Order {
     private double totalMrpPrice;
 
     private Integer totalSellingPrice;
+
+    private Integer discount;
+
+    private OrderStatus orderStatus;
+
+    private int totalItem;
+
+    private PaymentStatus paymentStatus = PaymentStatus.PENDING;
+
+    private LocalDateTime orderDate = LocalDateTime.now();
+
+    private LocalDateTime deliverDate = orderDate.plusDays(7);
 }

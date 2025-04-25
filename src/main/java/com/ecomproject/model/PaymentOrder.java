@@ -1,9 +1,12 @@
 package com.ecomproject.model;
 
 import com.ecomproject.domain.PaymentMethod;
-import com.ecomproject.domain.PaymentOderStatus;
+import com.ecomproject.domain.PaymentOrderStatus;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -19,7 +22,7 @@ public class PaymentOrder {
 
     private Long amount;
 
-    private PaymentOderStatus status = PaymentOrderStatus.PENDING;
+    private PaymentOrderStatus status = PaymentOrderStatus.PENDING;
 
     private PaymentMethod paymentMethod;
 
@@ -27,4 +30,6 @@ public class PaymentOrder {
 
     @ManyToOne
     private User user;
+
+    private Set<Order> orders = new HashSet<>();
 }

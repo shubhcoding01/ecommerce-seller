@@ -1,6 +1,6 @@
 package com.ecomproject.domain;
 
-public enum PaymentOderStatus {
+public enum PaymentOrderStatus {
     PENDING,
     SUCCESS,
     FAILED

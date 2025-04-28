@@ -30,13 +30,13 @@ public class Review {
 
     @JsonIgnore
     @ManyToOne
-    @Column( nullable = false)
+    @JoinColumn( nullable = false)
     private Product product;
 
     @ManyToOne
-    @Column( nullable = false)
+    @JoinColumn( nullable = false)
     private User user;
 
-    @Column(nullable = false)
+    @JoinColumn(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 }

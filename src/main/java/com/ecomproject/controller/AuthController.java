@@ -13,6 +13,8 @@ public class AuthController {
 
         User user = new User();
         user.setEmail(req.getEmail());
-        return null;
+        user.setFullName(req.getFullName());
+
+        return ResponseEntity.ok(user);
     }
 }

@@ -1,9 +1,6 @@
 package com.ecomproject.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -17,4 +14,9 @@ public class Deal {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    private Integer discount;
+
+    @OneToOne
+    private HomeCategory category;
 }

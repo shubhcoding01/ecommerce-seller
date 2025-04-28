@@ -1,4 +1,4 @@
-package com.ecomproject.service.impl;
+package com.ecomproject.service;
 
 public class AuthService {
 }

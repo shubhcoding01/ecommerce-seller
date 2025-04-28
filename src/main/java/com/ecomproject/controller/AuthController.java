@@ -11,7 +11,8 @@ public class AuthController {
 
     public ResponseEntity<User> createUserHandler(@RequestBody SignupRequest req){
 
-
+        User user = new User();
+        user.setEmail(req.getEmail());
         return null;
     }
 }

@@ -1,5 +1,8 @@
 package com.ecomproject.response;
 
+import lombok.Data;
+
+@Data
 public class SignupRequest {
 
     private String email;

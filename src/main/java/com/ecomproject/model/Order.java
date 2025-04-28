@@ -14,7 +14,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public class Order {
+@Table(name="orders")
+public class Orders {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -17,12 +17,13 @@ public class AuthController {
 
     private final UserRepository userRepository;
 
-    @PostMapping("signup")
+    @PostMapping("/signup")
     public ResponseEntity<User> createUserHandler(@RequestBody SignupRequest req){
 
         User user = new User();
         user.setEmail(req.getEmail());
         user.setFullName(req.getFullName());
+
 
         User savedUser=userRepository.save(user);
 

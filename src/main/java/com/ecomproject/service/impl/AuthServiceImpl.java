@@ -1,4 +1,6 @@
 package com.ecomproject.service.impl;
 
-public class AuthServiceImpl {
+import com.ecomproject.service.AuthService;
+
+public class AuthServiceImpl implements AuthService {
 }

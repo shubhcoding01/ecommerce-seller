@@ -1,5 +1,6 @@
 package com.ecomproject.config;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.Authentication;
@@ -30,7 +31,10 @@ public class JwtProvider {
     }
 
     public String getEmailFromToken(String jwt) {
-        
+        jwt = jwt.substring(7);
+        Claims claims =Jwts.parser().setSigningKey(key).build().
+                parseClaimsJws(jwt).getBody();
+        return String.valueOf(claims.get("email"));
     }
 
     private String populateAuthorities(Collection<? extends GrantedAuthority> authorities) {

@@ -29,9 +29,15 @@ public class JwtProvider {
 
     }
 
+    public String getEmailFromToken(String jwt) {
+        
+    }
+
     private String populateAuthorities(Collection<? extends GrantedAuthority> authorities) {
         Set<String> auths = new HashSet<>();
-        for (GrantedAuthority authority : authorities) {}
-        return null;
+        for (GrantedAuthority authority : authorities) {
+            auths.add(authority.getAuthority());
+        }
+        return String.join(",", auths);
     }
 }

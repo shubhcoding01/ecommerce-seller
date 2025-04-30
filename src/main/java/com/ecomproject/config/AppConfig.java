@@ -9,6 +9,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.web.cors.CorsConfigurationSource;
 
+
 @Configuration
 @EnableWebSecurity
 public class AppConfig {
@@ -23,7 +24,14 @@ public class AppConfig {
                 .anyRequest().permitAll()
         ).addFilterBefore(new JwtTokenValidator(), BasicAuthenticationFilter.class)
                 .csrf(csrf->csrf.disable())
-                .cors(cors->cors.configurationSource(corsConfigurationSource))
-          return null;
+                .cors(cors->cors.configurationSource(corsConfigurationSource()));
+          return http.build();
     }
+
+    private CorsConfigurationSource corsConfigurationSource() {
+        return null;
+
+    }
+
+
 }

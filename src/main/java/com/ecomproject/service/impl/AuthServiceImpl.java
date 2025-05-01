@@ -1,9 +1,14 @@
 package com.ecomproject.service.impl;
 
+import com.ecomproject.model.Cart;
+import com.ecomproject.model.User;
+import com.ecomproject.repository.CartRepository;
 import com.ecomproject.repository.UserRepository;
 import com.ecomproject.response.SignupRequest;
+import com.ecomproject.role.UserRole;
 import com.ecomproject.service.AuthService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,9 +16,28 @@ import org.springframework.stereotype.Service;
 public class AuthServiceImpl implements AuthService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final CartRepository cartRepository;
 
     @Override
     public String createUser(SignupRequest req) {
+
+        User user = userRepository.findByEmail(req.getEmail());
+
+        if (user != null) {
+            User createdUser = new User();
+            createdUser.setEmail(req.getEmail());
+            createdUser.setFullName(req.getFullName());
+            createdUser.setRole(UserRole.ROLE_CUSTOMER);
+            createdUser.setPhone("123456789");
+            createdUser.setPassword(passwordEncoder.encode(req.getOtp()));
+
+            user=userRepository.save(createdUser);
+            Cart cart = new Cart();
+            cart.setUser(user);
+            cartRepository.save(cart);
+        }
+        
         return "";
     }
 }

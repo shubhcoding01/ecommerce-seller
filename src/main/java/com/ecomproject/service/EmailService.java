@@ -1,5 +1,6 @@
 package com.ecomproject.service;
 
+import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.mail.MailException;
@@ -16,11 +17,12 @@ public class EmailService {
     private final JavaMailSender javaMailSender;
 
     public void sendVerificationOtpEmail(String userEmail, String otp, String subject,
-                                         String text) {
+                                         String text) throws MessagingException {
         try {
             MimeMessage mimeMessage = javaMailSender.createMimeMessage();
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(
                     mimeMessage, "utf-8");
+
             mimeMessageHelper.setSubject(subject);
             mimeMessageHelper.setText(text);
             mimeMessageHelper.setTo(userEmail);

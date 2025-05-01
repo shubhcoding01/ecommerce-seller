@@ -8,8 +8,13 @@ import com.ecomproject.response.SignupRequest;
 import com.ecomproject.role.UserRole;
 import com.ecomproject.service.AuthService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -37,6 +42,8 @@ public class AuthServiceImpl implements AuthService {
             cart.setUser(user);
             cartRepository.save(cart);
         }
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority(UserRole.ROLE_CUSTOMER.toString()));
         
         return "";
     }

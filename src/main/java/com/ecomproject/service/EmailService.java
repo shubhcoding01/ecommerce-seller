@@ -9,4 +9,9 @@ import org.springframework.stereotype.Service;
 public class EmailService {
 
     private final JavaMailSender mailSender;
+
+    public void sendVerificationOtpEmail(String userEmail, String otp, String subject,
+                                         String text) {
+        
+    }
 }

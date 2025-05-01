@@ -13,13 +13,19 @@ import org.springframework.stereotype.Service;
 public class EmailService {
 
     private final JavaMailSender mailSender;
+    private final JavaMailSender javaMailSender;
 
     public void sendVerificationOtpEmail(String userEmail, String otp, String subject,
                                          String text) {
         try {
-            MimeMessage mimeMessage = mailSender.createMimeMessage();
-            MimeMessageHelper helper = new MimeMessageHelper(
+            MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+            MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(
                     mimeMessage, "utf-8");
+            mimeMessageHelper.setSubject(subject);
+            mimeMessageHelper.setText(text);
+            mimeMessageHelper.setTo(userEmail);
+            javaMailSender.send(mimeMessage);
+
         }
         catch (MailException e){
             throw new MailSendException("Error sending verification OTP email") ;

@@ -3,8 +3,10 @@ package com.ecomproject.service.impl;
 import com.ecomproject.config.JwtProvider;
 import com.ecomproject.model.Cart;
 import com.ecomproject.model.User;
+import com.ecomproject.model.VerificationCode;
 import com.ecomproject.repository.CartRepository;
 import com.ecomproject.repository.UserRepository;
+import com.ecomproject.repository.VerificationCodeRepository;
 import com.ecomproject.response.SignupRequest;
 import com.ecomproject.role.UserRole;
 import com.ecomproject.service.AuthService;
@@ -28,9 +30,12 @@ public class AuthServiceImpl implements AuthService {
     private final PasswordEncoder passwordEncoder;
     private final CartRepository cartRepository;
     private final JwtProvider jwtProvider;
+    private final VerificationCodeRepository verificationCodeRepository;
 
     @Override
     public String createUser(SignupRequest req) {
+
+        VerificationCode verificationCode = verificationCodeRepository.findByEmail(req.getEmail());
 
         User user = userRepository.findByEmail(req.getEmail());
 

@@ -33,6 +33,11 @@ public class AuthServiceImpl implements AuthService {
     private final VerificationCodeRepository verificationCodeRepository;
 
     @Override
+    public void sentLoginOtp(String email) {
+        
+    }
+
+    @Override
     public String createUser(SignupRequest req) throws Exception {
 
         VerificationCode verificationCode = verificationCodeRepository.findByEmail(req.getEmail());

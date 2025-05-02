@@ -45,6 +45,11 @@ public class AuthServiceImpl implements AuthService {
             }
 
         }
+
+        VerificationCode isExist = verificationCodeRepository.findByEmail(email);
+        if(isExist != null) {
+            verificationCodeRepository.delete(isExist);
+        }
     }
 
     @Override

@@ -33,9 +33,13 @@ public class AuthServiceImpl implements AuthService {
     private final VerificationCodeRepository verificationCodeRepository;
 
     @Override
-    public String createUser(SignupRequest req) {
+    public String createUser(SignupRequest req) throws Exception {
 
         VerificationCode verificationCode = verificationCodeRepository.findByEmail(req.getEmail());
+
+        if(verificationCode == null) {
+            throw new Exception("Wrong otp...!!!");
+        }
 
         User user = userRepository.findByEmail(req.getEmail());
 

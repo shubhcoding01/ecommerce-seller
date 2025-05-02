@@ -63,6 +63,8 @@ public class AuthServiceImpl implements AuthService {
 
         String subject = "Ecomseller login/Signup Otp";
         String text = "Your Login/Signup Otp is : ";
+
+        emailService.sendVerificationOtpEmail(email,otp,subject,text);
     }
 
     @Override

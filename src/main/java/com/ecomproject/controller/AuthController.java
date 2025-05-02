@@ -1,7 +1,9 @@
 package com.ecomproject.controller;
 
 import com.ecomproject.model.User;
+import com.ecomproject.model.VerificationCode;
 import com.ecomproject.repository.UserRepository;
+import com.ecomproject.response.ApiResponse;
 import com.ecomproject.response.AuthResponse;
 import com.ecomproject.response.SignupRequest;
 import com.ecomproject.role.UserRole;
@@ -26,19 +28,25 @@ public class AuthController {
 
         String jwt=authService.createUser(req);
 
-        AuthResponse resq=new AuthResponse();
-        resq.setJwt(jwt);
-        resq.setMessage("registered successfully");
-        resq.setRole(UserRole.ROLE_CUSTOMER);
+        AuthResponse res=new AuthResponse();
+        res.setJwt(jwt);
+        res.setMessage("registered successfully");
+        res.setRole(UserRole.ROLE_CUSTOMER);
 
 
-//        User user = new User();
-//        user.setEmail(req.getEmail());
-//        user.setFullName(req.getFullName());
-//
-//
-//        User savedUser=userRepository.save(user);
+        return ResponseEntity.ok(res);
+    }
 
-        return ResponseEntity.ok(resq);
+    @PostMapping("/sent/loginsignupotp")
+    public ResponseEntity<ApiResponse> sentOtpHandler(@RequestBody VerificationCode req) throws Exception {
+
+        authService.sentLoginOtp(req.getEmail());
+
+        ApiResponse res=new ApiResponse();
+
+        res.setMessage("Otp Sent successfully");
+
+
+        return ResponseEntity.ok(res);
     }
 }

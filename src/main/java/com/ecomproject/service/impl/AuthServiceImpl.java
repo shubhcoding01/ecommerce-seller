@@ -10,6 +10,8 @@ import com.ecomproject.repository.VerificationCodeRepository;
 import com.ecomproject.response.SignupRequest;
 import com.ecomproject.role.UserRole;
 import com.ecomproject.service.AuthService;
+import com.ecomproject.service.EmailService;
+import com.ecomproject.util.OtpUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -31,6 +33,7 @@ public class AuthServiceImpl implements AuthService {
     private final CartRepository cartRepository;
     private final JwtProvider jwtProvider;
     private final VerificationCodeRepository verificationCodeRepository;
+    private final EmailService emailService;
 
     @Override
     public void sentLoginOtp(String email) throws Exception {
@@ -50,6 +53,16 @@ public class AuthServiceImpl implements AuthService {
         if(isExist != null) {
             verificationCodeRepository.delete(isExist);
         }
+
+        String otp = OtpUtil.generateOtp();
+
+        VerificationCode verificationCode = new VerificationCode();
+        verificationCode.setEmail(email);
+        verificationCode.setOtp(otp);
+        verificationCodeRepository.save(verificationCode);
+
+        String subject = "Ecomseller login/Signup Otp";
+        String text = "Your Login/Signup Otp is : ";
     }
 
     @Override

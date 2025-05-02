@@ -33,11 +33,17 @@ public class AuthServiceImpl implements AuthService {
     private final VerificationCodeRepository verificationCodeRepository;
 
     @Override
-    public void sentLoginOtp(String email) {
+    public void sentLoginOtp(String email) throws Exception {
         String SIGNING_PREFIX = "signing_";
 
         if(email.startsWith(SIGNING_PREFIX)) {
             email = email.substring(SIGNING_PREFIX.length());
+
+            User user = userRepository.findByEmail(email);
+            if(user == null) {
+                throw new Exception("User Not Exist with Provided Email..!!");
+            }
+
         }
     }
 

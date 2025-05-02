@@ -62,7 +62,7 @@ public class AuthServiceImpl implements AuthService {
         verificationCodeRepository.save(verificationCode);
 
         String subject = "Ecomseller login/Signup Otp";
-        String text = "Your Login/Signup Otp is : ";
+        String text = "Your Login/Signup Otp is : " + otp;
 
         emailService.sendVerificationOtpEmail(email,otp,subject,text);
     }

@@ -34,7 +34,11 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public void sentLoginOtp(String email) {
-        
+        String SIGNING_PREFIX = "signing_";
+
+        if(email.startsWith(SIGNING_PREFIX)) {
+            email = email.substring(SIGNING_PREFIX.length());
+        }
     }
 
     @Override

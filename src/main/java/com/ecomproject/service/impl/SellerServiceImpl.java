@@ -2,6 +2,7 @@ package com.ecomproject.service.impl;
 
 import com.ecomproject.domain.AccountStatus;
 import com.ecomproject.model.Seller;
+import com.ecomproject.repository.SellerRepository;
 import com.ecomproject.service.SellerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,9 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class SellerServiceImpl implements SellerService {
+    
+    private final SellerRepository sellerRepository;
+
     @Override
     public Seller getSellerProfile(String jwt) {
         return null;

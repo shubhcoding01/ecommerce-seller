@@ -6,6 +6,7 @@ import com.ecomproject.model.Seller;
 import com.ecomproject.repository.SellerRepository;
 import com.ecomproject.service.SellerService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class SellerServiceImpl implements SellerService {
 
     private final SellerRepository sellerRepository;
     private final JwtProvider jwtProvider;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public Seller getSellerProfile(String jwt) throws Exception {

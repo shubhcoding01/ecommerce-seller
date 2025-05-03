@@ -107,10 +107,18 @@ public class AuthServiceImpl implements AuthService {
         String otp = req.getOtp();
 
         Authentication authentication = authenticate(username,otp);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        String token = jwtProvider.generateToken(authentication);
+
+        AuthResponse authResponse = new AuthResponse();
+        authResponse.setJwt(token);
+        authResponse.setMessage("Login Success");
 
         return null;
     }
 
     private Authentication authenticate(String username, String otp) {
+        return null;
     }
 }

@@ -7,6 +7,8 @@ import com.ecomproject.model.VerificationCode;
 import com.ecomproject.repository.CartRepository;
 import com.ecomproject.repository.UserRepository;
 import com.ecomproject.repository.VerificationCodeRepository;
+import com.ecomproject.request.LoginRequest;
+import com.ecomproject.response.AuthResponse;
 import com.ecomproject.response.SignupRequest;
 import com.ecomproject.role.UserRole;
 import com.ecomproject.service.AuthService;
@@ -97,5 +99,10 @@ public class AuthServiceImpl implements AuthService {
         Authentication authentication = new UsernamePasswordAuthenticationToken(req.getEmail(), null, authorities);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         return jwtProvider.generateToken(authentication);
+    }
+
+    @Override
+    public AuthResponse signing(LoginRequest req) {
+        return null;
     }
 }

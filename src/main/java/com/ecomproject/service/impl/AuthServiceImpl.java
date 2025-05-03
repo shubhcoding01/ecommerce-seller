@@ -103,7 +103,14 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public AuthResponse signing(LoginRequest req) {
-        
+        String username = req.getEmail();
+        String otp = req.getOtp();
+
+        Authentication authentication = authenticate(username,otp);
+
         return null;
+    }
+
+    private Authentication authenticate(String username, String otp) {
     }
 }

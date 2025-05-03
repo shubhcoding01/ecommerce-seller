@@ -45,6 +45,7 @@ public class SellerServiceImpl implements SellerService {
         newSeller.setPickupAddress(savedAddress);
         newSeller.setGSTIN(seller.getGSTIN());
         newSeller.setRole(UserRole.ROLE_SELLER);
+        newSeller.setMobile(seller.getMobile());
         
 
         return null;

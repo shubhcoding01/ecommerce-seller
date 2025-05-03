@@ -7,10 +7,10 @@ import java.util.List;
 
 public interface SellerService {
 
-    Seller getSellerProfile(String jwt);
+    Seller getSellerProfile(String jwt) throws Exception;
     Seller createSeller(Seller seller);
     Seller getSellerById(Long id);
-    Seller getSellerByEmail(String email);
+    Seller getSellerByEmail(String email) throws Exception;
     List<Seller> getAllSellers(AccountStatus status);
     Seller updateSeller(Long id,Seller seller);
     void deleteSeller(Long id);

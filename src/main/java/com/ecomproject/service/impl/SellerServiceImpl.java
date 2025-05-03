@@ -18,8 +18,9 @@ public class SellerServiceImpl implements SellerService {
     private final JwtProvider jwtProvider;
 
     @Override
-    public Seller getSellerProfile(String jwt) {
-        return null;
+    public Seller getSellerProfile(String jwt) throws Exception {
+        String email = jwtProvider.getEmailFromToken(jwt);
+        return this.getSellerByEmail(email);
     }
 
     @Override
@@ -33,7 +34,11 @@ public class SellerServiceImpl implements SellerService {
     }
 
     @Override
-    public Seller getSellerByEmail(String email) {
+    public Seller getSellerByEmail(String email) throws Exception {
+        Seller seller = sellerRepository.findByEmail(email);
+        if (seller == null) {
+            throw new Exception("Seller Not Found...!!!");
+        }
         return null;
     }
 

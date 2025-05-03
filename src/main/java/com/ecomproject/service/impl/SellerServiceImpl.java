@@ -6,6 +6,7 @@ import com.ecomproject.model.Address;
 import com.ecomproject.model.Seller;
 import com.ecomproject.repository.AddressRepository;
 import com.ecomproject.repository.SellerRepository;
+import com.ecomproject.role.UserRole;
 import com.ecomproject.service.SellerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -43,6 +44,7 @@ public class SellerServiceImpl implements SellerService {
         newSeller.setSellerName(seller.getSellerName());
         newSeller.setPickupAddress(savedAddress);
         newSeller.setGSTIN(seller.getGSTIN());
+        newSeller.setRole(UserRole.ROLE_SELLER);
         
 
         return null;

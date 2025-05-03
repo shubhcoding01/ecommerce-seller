@@ -15,6 +15,7 @@ import com.ecomproject.service.AuthService;
 import com.ecomproject.service.EmailService;
 import com.ecomproject.util.OtpUtil;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -128,6 +129,16 @@ public class AuthServiceImpl implements AuthService {
 
     private Authentication authenticate(String username, String otp) {
         UserDetails userDetails = customUserService.loadUserByUsername(username);
+
+        if(userDetails == null) {
+            throw new BadCredentialsException("Invalid username or password");
+        }
+
+        VerificationCode verificationCode = verificationCodeRepository.findByEmail(otp);
+
+        if (verificationCode == null) {
+            throw new BadCredentialsException("Invalid otp");
+        }
         return null;
     }
 }

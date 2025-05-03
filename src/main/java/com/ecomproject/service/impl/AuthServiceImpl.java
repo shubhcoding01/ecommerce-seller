@@ -84,7 +84,7 @@ public class AuthServiceImpl implements AuthService {
 
         User user = userRepository.findByEmail(req.getEmail());
 
-        if (user != null) {
+        if (user == null) {
             User createdUser = new User();
             createdUser.setEmail(req.getEmail());
             createdUser.setFullName(req.getFullName());
@@ -134,7 +134,7 @@ public class AuthServiceImpl implements AuthService {
             throw new BadCredentialsException("Invalid username or password");
         }
 
-        VerificationCode verificationCode = verificationCodeRepository.findByEmail(otp);
+        VerificationCode verificationCode = verificationCodeRepository.findByEmail(username);
 
         if (verificationCode == null || !verificationCode.getOtp().equals(otp)) {
             throw new BadCredentialsException("Invalid otp");

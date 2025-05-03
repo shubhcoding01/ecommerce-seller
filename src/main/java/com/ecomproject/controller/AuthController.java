@@ -56,7 +56,7 @@ public class AuthController {
             @RequestBody LoginRequest req) throws Exception {
 
         AuthResponse authResponse = authService.signing(req);
-        
+
 
         return ResponseEntity.ok(authResponse);
     }

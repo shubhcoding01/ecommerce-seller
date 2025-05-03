@@ -35,7 +35,7 @@ public class CustomUserServiceImpl implements UserDetailsService {
         }
         else {
             User user = userRepository.findByEmail(username);
-            if(user == null){
+            if(user != null){
                 return buildUserDetails(user.getEmail(),user.getPassword(),user.getRole());
             }
         }
@@ -47,7 +47,7 @@ public class CustomUserServiceImpl implements UserDetailsService {
         if(role == null) role=UserRole.ROLE_CUSTOMER;
 
         List<GrantedAuthority> authorityList = new ArrayList<>();
-        authorityList.add(new SimpleGrantedAuthority("ROLE_"+role));
+        authorityList.add(new SimpleGrantedAuthority(role.toString()));
         return new org.springframework.security.core.userdetails.User(
                 email,
                 password,

@@ -49,7 +49,7 @@ public class SellerServiceImpl implements SellerService {
         newSeller.setBankDetails(seller.getBankDetails());
         newSeller.setBusinessDetails(seller.getBusinessDetails());
 
-        return null;
+        return sellerRepository.save(newSeller);
     }
 
     @Override

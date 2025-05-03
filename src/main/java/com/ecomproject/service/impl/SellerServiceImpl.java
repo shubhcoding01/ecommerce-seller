@@ -40,6 +40,7 @@ public class SellerServiceImpl implements SellerService {
         Seller newSeller = new Seller();
         newSeller.setEmail(seller.getEmail());
         newSeller.setPassword(passwordEncoder.encode(seller.getPassword()));
+        newSeller.setSellerName(seller.getSellerName());
 
         return null;
     }

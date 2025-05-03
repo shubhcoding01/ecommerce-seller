@@ -8,6 +8,7 @@ import com.ecomproject.repository.AddressRepository;
 import com.ecomproject.repository.SellerRepository;
 import com.ecomproject.role.UserRole;
 import com.ecomproject.service.SellerService;
+import io.jsonwebtoken.ExpiredJwtException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -53,8 +54,10 @@ public class SellerServiceImpl implements SellerService {
     }
 
     @Override
-    public Seller getSellerById(Long id) {
-        return null;
+    public Seller getSellerById(Long id) throws Exception {
+
+        return sellerRepository.findById(id)
+                .orElseThrow(()-> new Exception("Seller not found with Id : " + id));
     }
 
     @Override

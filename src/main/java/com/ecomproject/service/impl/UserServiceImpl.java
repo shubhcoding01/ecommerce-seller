@@ -13,14 +13,22 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final JwtProvider jwtProvider;
-    
+
     @Override
-    public User findUserByJwtToken(String jwt) {
-        return null;
+    public User findUserByJwtToken(String jwt) throws Exception {
+        String email = jwtProvider.getEmailFromToken(jwt);
+
+        User user = this.findUserByEmail(email);
+
+        if(user == null){
+            throw new Exception("User Not Found With this email : " + email);
+        }
+
+        return user;
     }
 
     @Override
-    public User findUserByUsername(String username) {
+    public User findUserByEmail(String email) {
         return null;
     }
 }

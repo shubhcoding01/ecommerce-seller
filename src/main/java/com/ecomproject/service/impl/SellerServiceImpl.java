@@ -26,7 +26,11 @@ public class SellerServiceImpl implements SellerService {
     }
 
     @Override
-    public Seller createSeller(Seller seller) {
+    public Seller createSeller(Seller seller) throws Exception {
+        Seller sellerExist = sellerRepository.findByEmail(seller.getEmail());
+        if(sellerExist != null) {
+            throw new Exception("Seller Already Exist, Please Use Different Email..!!!");
+        }
         return null;
     }
 

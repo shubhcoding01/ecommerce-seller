@@ -2,6 +2,7 @@ package com.ecomproject.service.impl;
 
 import com.ecomproject.config.JwtProvider;
 import com.ecomproject.domain.AccountStatus;
+import com.ecomproject.model.Address;
 import com.ecomproject.model.Seller;
 import com.ecomproject.repository.AddressRepository;
 import com.ecomproject.repository.SellerRepository;
@@ -33,6 +34,7 @@ public class SellerServiceImpl implements SellerService {
         if(sellerExist != null) {
             throw new Exception("Seller Already Exist, Please Use Different Email..!!!");
         }
+        Address savedAddress = addressRepository.save(seller.getPickupAddress());
         return null;
     }
 

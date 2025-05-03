@@ -3,6 +3,7 @@ package com.ecomproject.controller;
 import com.ecomproject.model.User;
 import com.ecomproject.model.VerificationCode;
 import com.ecomproject.repository.UserRepository;
+import com.ecomproject.request.LoginRequest;
 import com.ecomproject.response.ApiResponse;
 import com.ecomproject.response.AuthResponse;
 import com.ecomproject.response.SignupRequest;
@@ -48,5 +49,15 @@ public class AuthController {
 
 
         return ResponseEntity.ok(res);
+    }
+
+    @PostMapping("/signing")
+    public ResponseEntity<AuthResponse> loginHandler(
+            @RequestBody LoginRequest req) throws Exception {
+
+        AuthResponse authResponse = authService.signing(req);
+        
+
+        return ResponseEntity.ok(authResponse);
     }
 }

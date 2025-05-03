@@ -41,6 +41,8 @@ public class SellerServiceImpl implements SellerService {
         newSeller.setEmail(seller.getEmail());
         newSeller.setPassword(passwordEncoder.encode(seller.getPassword()));
         newSeller.setSellerName(seller.getSellerName());
+        newSeller.setPickupAddress(savedAddress);
+        
 
         return null;
     }

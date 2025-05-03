@@ -34,7 +34,12 @@ public class SellerServiceImpl implements SellerService {
         if(sellerExist != null) {
             throw new Exception("Seller Already Exist, Please Use Different Email..!!!");
         }
+
         Address savedAddress = addressRepository.save(seller.getPickupAddress());
+
+        Seller newSeller = new Seller();
+        newSeller.setEmail(seller.getEmail());
+
         return null;
     }
 

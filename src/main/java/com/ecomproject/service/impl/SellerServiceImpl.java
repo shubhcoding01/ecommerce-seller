@@ -46,7 +46,7 @@ public class SellerServiceImpl implements SellerService {
         newSeller.setGSTIN(seller.getGSTIN());
         newSeller.setRole(UserRole.ROLE_SELLER);
         newSeller.setMobile(seller.getMobile());
-        
+        newSeller.setBankDetails(seller.getBankDetails());
 
         return null;
     }

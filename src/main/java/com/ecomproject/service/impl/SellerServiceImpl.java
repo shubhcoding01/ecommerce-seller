@@ -86,7 +86,16 @@ public class SellerServiceImpl implements SellerService {
         if (seller.getMobile() != null){
             existingSeller.setMobile(seller.getMobile());
         }
-        
+        if(seller.getEmail() != null) {
+            existingSeller.setEmail(seller.getEmail());
+        }
+        if(seller.getBusinessDetails() != null
+                && seller.getBusinessDetails().getBusinessName() != null) {
+
+            existingSeller.getBusinessDetails().setBusinessName(
+                    seller.getBusinessDetails().getBusinessName()
+            );
+        }
 
     return null;
     }

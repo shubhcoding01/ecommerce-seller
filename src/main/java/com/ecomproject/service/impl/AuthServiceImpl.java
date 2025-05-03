@@ -136,9 +136,11 @@ public class AuthServiceImpl implements AuthService {
 
         VerificationCode verificationCode = verificationCodeRepository.findByEmail(otp);
 
-        if (verificationCode == null) {
+        if (verificationCode == null || !verificationCode.getOtp().equals(otp)) {
             throw new BadCredentialsException("Invalid otp");
         }
-        return null;
+        return new UsernamePasswordAuthenticationToken(
+                userDetails, null,
+                userDetails.getAuthorities());
     }
 }

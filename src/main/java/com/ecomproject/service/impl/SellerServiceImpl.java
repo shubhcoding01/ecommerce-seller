@@ -1,5 +1,6 @@
 package com.ecomproject.service.impl;
 
+import com.ecomproject.config.JwtProvider;
 import com.ecomproject.domain.AccountStatus;
 import com.ecomproject.model.Seller;
 import com.ecomproject.repository.SellerRepository;
@@ -12,8 +13,9 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class SellerServiceImpl implements SellerService {
-    
+
     private final SellerRepository sellerRepository;
+    private final JwtProvider jwtProvider;
 
     @Override
     public Seller getSellerProfile(String jwt) {

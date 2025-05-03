@@ -3,10 +3,13 @@ package com.ecomproject.service.impl;
 import com.ecomproject.domain.AccountStatus;
 import com.ecomproject.model.Seller;
 import com.ecomproject.service.SellerService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
+@Service
+@RequiredArgsConstructor
 public class SellerServiceImpl implements SellerService {
     @Override
     public Seller getSellerProfile(String jwt) {

@@ -96,6 +96,21 @@ public class SellerServiceImpl implements SellerService {
                     seller.getBusinessDetails().getBusinessName()
             );
         }
+        if(seller.getBankDetails() != null
+                && seller.getBankDetails().getAccountHolderName() != null
+                && seller.getBankDetails().getIfscCode() != null
+                && seller.getBankDetails().getAccountNumber() != null
+        ) {
+            existingSeller.getBankDetails().setAccountNumber(
+                    seller.getBankDetails().getAccountNumber()
+            );
+            existingSeller.getBankDetails().setIfscCode(
+                    seller.getBankDetails().getIfscCode()
+            );
+            existingSeller.getBankDetails().setAccountHolderName(
+                    seller.getBankDetails().getAccountHolderName()
+            );
+        }
 
     return null;
     }

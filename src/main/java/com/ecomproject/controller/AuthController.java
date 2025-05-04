@@ -3,6 +3,7 @@ package com.ecomproject.controller;
 import com.ecomproject.model.User;
 import com.ecomproject.model.VerificationCode;
 import com.ecomproject.repository.UserRepository;
+import com.ecomproject.request.LoginOtpRequest;
 import com.ecomproject.request.LoginRequest;
 import com.ecomproject.response.ApiResponse;
 import com.ecomproject.response.AuthResponse;
@@ -39,9 +40,10 @@ public class AuthController {
     }
 
     @PostMapping("/sent/loginsignupotp")
-    public ResponseEntity<ApiResponse> sentOtpHandler(@RequestBody VerificationCode req) throws Exception {
+    public ResponseEntity<ApiResponse> sentOtpHandler(
+            @RequestBody LoginOtpRequest req) throws Exception {
 
-        authService.sentLoginOtp(req.getEmail());
+        authService.sentLoginOtp(req.getEmail(), req.getRole());
 
         ApiResponse res=new ApiResponse();
 

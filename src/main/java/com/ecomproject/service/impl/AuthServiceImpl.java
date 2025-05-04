@@ -2,9 +2,11 @@ package com.ecomproject.service.impl;
 
 import com.ecomproject.config.JwtProvider;
 import com.ecomproject.model.Cart;
+import com.ecomproject.model.Seller;
 import com.ecomproject.model.User;
 import com.ecomproject.model.VerificationCode;
 import com.ecomproject.repository.CartRepository;
+import com.ecomproject.repository.SellerRepository;
 import com.ecomproject.repository.UserRepository;
 import com.ecomproject.repository.VerificationCodeRepository;
 import com.ecomproject.request.LoginRequest;
@@ -40,17 +42,28 @@ public class AuthServiceImpl implements AuthService {
     private final VerificationCodeRepository verificationCodeRepository;
     private final EmailService emailService;
     private final CustomUserServiceImpl customUserService;
+    private final SellerRepository sellerRepository;
 
     @Override
-    public void sentLoginOtp(String email) throws Exception {
+    public void sentLoginOtp(String email,UserRole role) throws Exception {
         String SIGNING_PREFIX = "signing_";
+//        String SELLER_PREFIX = "Seller";
 
         if(email.startsWith(SIGNING_PREFIX)) {
             email = email.substring(SIGNING_PREFIX.length());
 
-            User user = userRepository.findByEmail(email);
-            if(user == null) {
-                throw new Exception("User Not Exist with Provided Email..!!");
+            if(role.equals(UserRole.ROLE_SELLER)){
+                Seller seller = sellerRepository.findByEmail(email);
+                if(seller == null) {
+                    throw new Exception("Seller not found");
+                }
+            }
+            else {
+
+                User user = userRepository.findByEmail(email);
+                if (user == null) {
+                    throw new Exception("User Not Exist with Provided Email..!!");
+                }
             }
 
         }

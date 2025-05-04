@@ -8,6 +8,8 @@ import com.ecomproject.response.ApiResponse;
 import com.ecomproject.response.AuthResponse;
 import com.ecomproject.service.AuthService;
 import com.ecomproject.service.SellerService;
+import com.ecomproject.util.OtpUtil;
+import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -68,6 +70,19 @@ public class SellerController {
         Seller seller = sellerService.verifySeller(verificationCode.getEmail(),otp);
         return new ResponseEntity<>(seller, HttpStatus.OK);
     }
-    
+
+    public ResponseEntity<Seller> createSeller(
+           @RequestBody Seller seller) throws Exception, MessagingException {
+        Seller savedSeller = sellerService.createSeller(seller);
+
+        String otp = OtpUtil.generateOtp();
+
+        VerificationCode verificationCode = new VerificationCode();
+        verificationCode.setEmail(seller.getEmail());
+        verificationCode.setOtp(otp);
+        verificationCodeRepository.save(verificationCode);
+
+        
+    }
 
 }

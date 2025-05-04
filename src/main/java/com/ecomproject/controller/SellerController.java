@@ -1,6 +1,7 @@
 package com.ecomproject.controller;
 
 import com.ecomproject.config.JwtProvider;
+import com.ecomproject.domain.AccountStatus;
 import com.ecomproject.model.Seller;
 import com.ecomproject.model.SellerReport;
 import com.ecomproject.model.VerificationCode;
@@ -115,6 +116,7 @@ public class SellerController {
 
     @GetMapping
     public ResponseEntity<List<Seller>> getAllSeller(
-            
-    )
+            @RequestParam(required = false)AccountStatus status) {
+        
+    }
 }

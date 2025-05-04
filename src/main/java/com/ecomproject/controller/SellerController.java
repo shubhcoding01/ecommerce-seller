@@ -128,6 +128,8 @@ public class SellerController {
 
         Seller profile = sellerService.getSellerProfile(jwt);
         Seller updatedSeller = sellerService.updateSeller(profile.getId(), seller);
-        
+        return ResponseEntity.ok(updatedSeller);
     }
+
+    
 }

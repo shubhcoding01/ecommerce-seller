@@ -9,6 +9,7 @@ import com.ecomproject.response.AuthResponse;
 import com.ecomproject.service.AuthService;
 import com.ecomproject.service.SellerService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -61,8 +62,12 @@ public class SellerController {
         VerificationCode verificationCode = verificationCodeRepository.findByOtp(otp);
 
         if (verificationCode == null || !verificationCode.getOtp().equals(otp)) {
-
+            throw new Exception("Wrong otp...!!!");
         }
+
+        Seller seller = sellerService.verifySeller(verificationCode.getEmail(),otp);
+        return new ResponseEntity<>(seller, HttpStatus.OK);
     }
+    
 
 }

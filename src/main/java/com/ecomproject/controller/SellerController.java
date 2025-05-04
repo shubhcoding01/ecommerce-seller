@@ -125,6 +125,7 @@ public class SellerController {
     public ResponseEntity<Seller> updateSeller(
             @RequestHeader("Authorization") String jwt,
             @RequestBody Seller seller) throws Exception {
-        
+
+        Seller profile = sellerService.getSellerProfile(jwt);
     }
 }

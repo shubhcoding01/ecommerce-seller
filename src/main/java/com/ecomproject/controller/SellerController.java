@@ -1,6 +1,8 @@
 package com.ecomproject.controller;
 
+import com.ecomproject.config.JwtProvider;
 import com.ecomproject.model.Seller;
+import com.ecomproject.model.SellerReport;
 import com.ecomproject.model.VerificationCode;
 import com.ecomproject.repository.VerificationCodeRepository;
 import com.ecomproject.request.LoginRequest;
@@ -25,6 +27,7 @@ public class SellerController {
     private final VerificationCodeRepository verificationCodeRepository;
     private final AuthService authService;
     private final EmailService emailService;
+    private final JwtProvider jwtProvider;
 
 //    @PostMapping("/sent/loginotp")
 //    public ResponseEntity<ApiResponse> sentOtpHandler(
@@ -98,4 +101,15 @@ public class SellerController {
         Seller seller = sellerService.getSellerProfile(jwt);
         return new ResponseEntity<>(seller, HttpStatus.OK);
     }
+
+//    @GetMapping("/report")
+//    public ResponseEntity<SellerReport> getSellerReport(
+//            @RequestHeader("Authorization") String jwt) throws Exception {
+//        String email = jwtProvider.getEmailFromToken(jwt);
+//        Seller seller = sellerService.getSellerByEmail(email);
+//        SellerReport sellerReport = sellerReportService.getSellerReport(seller);
+//        return new ResponseEntity<>(sellerReport, HttpStatus.OK);
+//    }
+
+    
 }

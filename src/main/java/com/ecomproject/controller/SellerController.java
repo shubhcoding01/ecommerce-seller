@@ -123,6 +123,6 @@ public class SellerController {
 
     @PatchMapping()
     public ResponseEntity<Seller> updateSeller(
-
-    )
+            @RequestHeader("Authorization") String jwt,
+            @RequestBody Seller seller)
 }

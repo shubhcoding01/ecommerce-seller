@@ -133,6 +133,6 @@ public class SellerController {
 
     public ResponseEntity<Void> deleteSeller(
             @PathVariable Long id) throws Exception {
-        
+        sellerService.deleteSeller(id);
     }
 }

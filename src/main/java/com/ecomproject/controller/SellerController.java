@@ -121,7 +121,8 @@ public class SellerController {
         return ResponseEntity.ok(sellers);
     }
 
+    @PatchMapping()
     public ResponseEntity<Seller> updateSeller(
-            
+
     )
 }

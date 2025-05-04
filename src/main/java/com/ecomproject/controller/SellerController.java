@@ -118,5 +118,6 @@ public class SellerController {
     public ResponseEntity<List<Seller>> getAllSeller(
             @RequestParam(required = false)AccountStatus status) {
         List<Seller> sellers = sellerService.getAllSellers(status);
+        return ResponseEntity.ok(sellers);
     }
 }

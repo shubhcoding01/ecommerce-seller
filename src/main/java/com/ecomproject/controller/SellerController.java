@@ -127,5 +127,7 @@ public class SellerController {
             @RequestBody Seller seller) throws Exception {
 
         Seller profile = sellerService.getSellerProfile(jwt);
+        Seller updatedSeller = sellerService.updateSeller(profile.getId(), seller);
+        
     }
 }

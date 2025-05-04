@@ -113,6 +113,7 @@ public class SellerController {
 //        return new ResponseEntity<>(sellerReport, HttpStatus.OK);
 //    }
 
+    @GetMapping
     public ResponseEntity<List<Seller>> getAllSeller(
             
     )

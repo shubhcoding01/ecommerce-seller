@@ -1,5 +1,6 @@
 package com.ecomproject.controller;
 
+import com.ecomproject.model.Seller;
 import com.ecomproject.model.VerificationCode;
 import com.ecomproject.repository.VerificationCodeRepository;
 import com.ecomproject.request.LoginRequest;
@@ -9,10 +10,7 @@ import com.ecomproject.service.AuthService;
 import com.ecomproject.service.SellerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -55,4 +53,16 @@ public class SellerController {
 
         return ResponseEntity.ok(authResponse);
     }
+
+    @PatchMapping("/verify/{otp}")
+    public ResponseEntity<Seller> verifySellerEmail(
+            @PathVariable String otp) throws Exception {
+
+        VerificationCode verificationCode = verificationCodeRepository.findByOtp(otp);
+
+        if (verificationCode == null || !verificationCode.getOtp().equals(otp)) {
+
+        }
+    }
+
 }

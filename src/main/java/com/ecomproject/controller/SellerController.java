@@ -117,6 +117,6 @@ public class SellerController {
     @GetMapping
     public ResponseEntity<List<Seller>> getAllSeller(
             @RequestParam(required = false)AccountStatus status) {
-        
+        List<Seller> sellers = sellerService.getAllSellers(status);
     }
 }

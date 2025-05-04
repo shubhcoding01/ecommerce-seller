@@ -131,5 +131,7 @@ public class SellerController {
         return ResponseEntity.ok(updatedSeller);
     }
 
-    
+    public ResponseEntity<Void> deleteSeller(
+            
+    )
 }

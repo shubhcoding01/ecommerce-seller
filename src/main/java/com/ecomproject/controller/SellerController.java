@@ -120,4 +120,8 @@ public class SellerController {
         List<Seller> sellers = sellerService.getAllSellers(status);
         return ResponseEntity.ok(sellers);
     }
+
+    public ResponseEntity<Seller> updateSeller(
+            
+    )
 }

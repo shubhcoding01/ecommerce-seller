@@ -7,6 +7,7 @@ import com.ecomproject.request.LoginRequest;
 import com.ecomproject.response.ApiResponse;
 import com.ecomproject.response.AuthResponse;
 import com.ecomproject.service.AuthService;
+import com.ecomproject.service.EmailService;
 import com.ecomproject.service.SellerService;
 import com.ecomproject.util.OtpUtil;
 import jakarta.mail.MessagingException;
@@ -23,6 +24,7 @@ public class SellerController {
     private final SellerService sellerService;
     private final VerificationCodeRepository verificationCodeRepository;
     private final AuthService authService;
+    private final EmailService emailService;
 
 //    @PostMapping("/sent/loginotp")
 //    public ResponseEntity<ApiResponse> sentOtpHandler(
@@ -82,7 +84,12 @@ public class SellerController {
         verificationCode.setOtp(otp);
         verificationCodeRepository.save(verificationCode);
 
-        
+        String subject = "Ecommerce Seller Email Verification Code.";
+        String text = "Welcome to Ecommerce Seller, Verify Your Account Using This Link ";
+        String frontend_url = "http://localhost:5454/verify-seller/";
+        emailService.sendVerificationOtpEmail(seller.getEmail(), verificationCode.getOtp(), subject, text + frontend_url);
+        return new ResponseEntity<>(savedSeller, HttpStatus.CREATED);
+
     }
 
 }

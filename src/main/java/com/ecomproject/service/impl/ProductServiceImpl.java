@@ -2,6 +2,7 @@ package com.ecomproject.service.impl;
 
 import com.ecomproject.model.Product;
 import com.ecomproject.model.Seller;
+import com.ecomproject.repository.CategoryRepository;
 import com.ecomproject.repository.ProductRepository;
 import com.ecomproject.request.CreateProductRequest;
 import com.ecomproject.service.ProductService;
@@ -16,6 +17,7 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
+    private final CategoryRepository categoryRepository;
 
     @Override
     public Product createProduct(CreateProductRequest req, Seller seller) {

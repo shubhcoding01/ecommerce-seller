@@ -1,4 +1,7 @@
 package com.ecomproject.exceptions;
 
-public class SellerException {
+public class SellerException extends Exception {
+    public SellerException(String message) {
+        
+    }
 }

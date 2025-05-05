@@ -2,6 +2,8 @@ package com.ecomproject.request;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class CreateProductRequest {
 
@@ -9,5 +11,11 @@ public class CreateProductRequest {
     private String description;
     private double mrpPrice;
     private int sellingPrice;
-    
+    private String color;
+    private List<String> images;
+    private String category;
+    private String category2;
+    private String category3;
+
+    private String sizes;
 }

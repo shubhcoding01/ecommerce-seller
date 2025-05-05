@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 
+import java.time.LocalDateTime;
+
 @ControllerAdvice
 public class GlobalException {
 
@@ -13,6 +15,7 @@ public class GlobalException {
             ErrorDetails errorDetails = new ErrorDetails();
             errorDetails.setDetails(se.getMessage());
             errorDetails.setError(request.getDescription(false));
+            errorDetails.setTimestamp(LocalDateTime.now());
             
     }
 }

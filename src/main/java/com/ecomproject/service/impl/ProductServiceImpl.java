@@ -5,9 +5,11 @@ import com.ecomproject.model.Seller;
 import com.ecomproject.request.CreateProductRequest;
 import com.ecomproject.service.ProductService;
 import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ProductServiceImpl implements ProductService {
     @Override
     public Product createProduct(CreateProductRequest req, Seller seller) {

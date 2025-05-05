@@ -143,6 +143,12 @@ public class AuthServiceImpl implements AuthService {
     private Authentication authenticate(String username, String otp) throws Exception {
         UserDetails userDetails = customUserService.loadUserByUsername(username);
 
+        String SELLER_PREFIX = "Seller";
+
+        if(username.startsWith(SELLER_PREFIX)){
+           username = username.substring(SELLER_PREFIX.length());
+        }
+
         if(userDetails == null) {
             throw new BadCredentialsException("Invalid username or password");
         }

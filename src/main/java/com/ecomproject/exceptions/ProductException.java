@@ -1,4 +1,4 @@
 package com.ecomproject.exceptions;
 
-public class ProductException {
+public class ProductException extends Exception {
 }

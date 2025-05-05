@@ -19,4 +19,13 @@ public class GlobalException {
             errorDetails.setTimestamp(LocalDateTime.now());
             return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(ProductException.class)
+    public ResponseEntity<ErrorDetails> productExceptionHandler(SellerException se, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails();
+        errorDetails.setDetails(se.getMessage());
+        errorDetails.setError(request.getDescription(false));
+        errorDetails.setTimestamp(LocalDateTime.now());
+        return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
+    }
 }

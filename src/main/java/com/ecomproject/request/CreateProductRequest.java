@@ -6,5 +6,5 @@ import lombok.Data;
 public class CreateProductRequest {
 
     private String title;
-    
+    private String description;
 }

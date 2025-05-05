@@ -12,6 +12,7 @@ public class GlobalException {
     public ResponseEntity<ErrorDetails> sellerExceptionHandler(SellerException se, WebRequest request) {
             ErrorDetails errorDetails = new ErrorDetails();
             errorDetails.setDetails(se.getMessage());
+            errorDetails.setError(request.getDescription(false));
             
     }
 }

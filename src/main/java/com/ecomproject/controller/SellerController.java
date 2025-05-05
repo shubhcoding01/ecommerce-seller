@@ -79,6 +79,7 @@ public class SellerController {
         return new ResponseEntity<>(seller, HttpStatus.OK);
     }
 
+    @PostMapping
     public ResponseEntity<Seller> createSeller(
            @RequestBody Seller seller) throws Exception, MessagingException {
         Seller savedSeller = sellerService.createSeller(seller);
@@ -97,6 +98,8 @@ public class SellerController {
         return new ResponseEntity<>(savedSeller, HttpStatus.CREATED);
 
     }
+
+    
 
     @GetMapping("/profile")
     public ResponseEntity<Seller> getSellerByJwt(

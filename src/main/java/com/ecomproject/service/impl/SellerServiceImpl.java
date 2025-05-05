@@ -2,6 +2,7 @@ package com.ecomproject.service.impl;
 
 import com.ecomproject.config.JwtProvider;
 import com.ecomproject.domain.AccountStatus;
+import com.ecomproject.exceptions.SellerException;
 import com.ecomproject.model.Address;
 import com.ecomproject.model.Seller;
 import com.ecomproject.repository.AddressRepository;
@@ -54,10 +55,10 @@ public class SellerServiceImpl implements SellerService {
     }
 
     @Override
-    public Seller getSellerById(Long id) throws Exception {
+    public Seller getSellerById(Long id) throws SellerException {
 
         return sellerRepository.findById(id)
-                .orElseThrow(()-> new Exception("Seller not found with Id : " + id));
+                .orElseThrow(()-> new SellerException("Seller not found with Id : " + id));
     }
 
     @Override

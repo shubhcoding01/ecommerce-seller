@@ -2,6 +2,7 @@ package com.ecomproject.controller;
 
 import com.ecomproject.config.JwtProvider;
 import com.ecomproject.domain.AccountStatus;
+import com.ecomproject.exceptions.SellerException;
 import com.ecomproject.model.Seller;
 import com.ecomproject.model.SellerReport;
 import com.ecomproject.model.VerificationCode;
@@ -101,7 +102,7 @@ public class SellerController {
 
     @GetMapping("{id}")
     public ResponseEntity<Seller> getSellerById(
-            @PathVariable Long id) throws Exception {
+            @PathVariable Long id) throws SellerException {
         Seller seller = sellerService.getSellerById(id);
         return new ResponseEntity<>(seller, HttpStatus.OK);
     }

@@ -24,6 +24,13 @@ public class ProductServiceImpl implements ProductService {
     public Product createProduct(CreateProductRequest req, Seller seller) {
 
         Category category1 = categoryRepository.findByCategoryId(req.getCategory());
+
+        if(category1 == null) {
+            Category newCategory = new Category();
+            newCategory.setCategoryId(req.getCategory());
+            newCategory.setLevel(1);
+            category1 = categoryRepository.save(newCategory);
+        }
         return null;
     }
 

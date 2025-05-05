@@ -2,6 +2,7 @@ package com.ecomproject.service.impl;
 
 import com.ecomproject.model.Product;
 import com.ecomproject.model.Seller;
+import com.ecomproject.repository.ProductRepository;
 import com.ecomproject.request.CreateProductRequest;
 import com.ecomproject.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,9 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
+
+    private final ProductRepository productRepository;
+
     @Override
     public Product createProduct(CreateProductRequest req, Seller seller) {
         return null;

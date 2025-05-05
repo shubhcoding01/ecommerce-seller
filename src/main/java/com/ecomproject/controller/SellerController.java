@@ -93,13 +93,13 @@ public class SellerController {
 
         String subject = "Ecommerce Seller Email Verification Code.";
         String text = "Welcome to Ecommerce Seller, Verify Your Account Using This Link ";
-        String frontend_url = "http://localhost:5454/verify-seller/";
+        String frontend_url = "http://localhost:3000/verify-seller/";
         emailService.sendVerificationOtpEmail(seller.getEmail(), verificationCode.getOtp(), subject, text + frontend_url);
         return new ResponseEntity<>(savedSeller, HttpStatus.CREATED);
 
     }
 
-    @GetMapping
+    @GetMapping("{id}")
     public ResponseEntity<Seller> getSellerById(
             @PathVariable Long id) throws Exception {
         Seller seller = sellerService.getSellerById(id);

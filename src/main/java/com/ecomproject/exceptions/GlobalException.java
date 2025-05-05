@@ -11,5 +11,7 @@ public class GlobalException {
     @ExceptionHandler(SellerException.class)
     public ResponseEntity<ErrorDetails> sellerExceptionHandler(SellerException se, WebRequest request) {
             ErrorDetails errorDetails = new ErrorDetails();
+            errorDetails.setDetails(se.getMessage());
+            
     }
 }

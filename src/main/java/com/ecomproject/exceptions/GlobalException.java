@@ -1,5 +1,6 @@
 package com.ecomproject.exceptions;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -16,6 +17,6 @@ public class GlobalException {
             errorDetails.setDetails(se.getMessage());
             errorDetails.setError(request.getDescription(false));
             errorDetails.setTimestamp(LocalDateTime.now());
-            
+            return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
     }
 }

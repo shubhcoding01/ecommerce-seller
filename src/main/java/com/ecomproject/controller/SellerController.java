@@ -99,7 +99,12 @@ public class SellerController {
 
     }
 
-    
+    @GetMapping
+    public ResponseEntity<Seller> getSellerById(
+            @PathVariable Long id) throws Exception {
+        Seller seller = sellerService.getSellerById(id);
+        return new ResponseEntity<>(seller, HttpStatus.OK);
+    }
 
     @GetMapping("/profile")
     public ResponseEntity<Seller> getSellerByJwt(

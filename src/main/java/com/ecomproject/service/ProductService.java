@@ -25,7 +25,7 @@ public interface ProductService {
             String sort,
             String stock,
             Integer pageNumber
-
-
     );
+    List<Product> getProductsBySellerId(String sellerId);
+    
 }

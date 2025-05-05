@@ -1,5 +1,6 @@
 package com.ecomproject.service.impl;
 
+import com.ecomproject.model.Category;
 import com.ecomproject.model.Product;
 import com.ecomproject.model.Seller;
 import com.ecomproject.repository.CategoryRepository;
@@ -21,6 +22,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product createProduct(CreateProductRequest req, Seller seller) {
+
+        Category category1 = categoryRepository.findByCategoryId(req.getCategory());
         return null;
     }
 

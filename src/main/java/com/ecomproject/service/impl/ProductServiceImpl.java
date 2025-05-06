@@ -31,6 +31,7 @@ public class ProductServiceImpl implements ProductService {
             newCategory.setLevel(1);
             category1 = categoryRepository.save(newCategory);
         }
+        Category category2 = categoryRepository.findByCategoryId(req.getCategory2());
         return null;
     }
 

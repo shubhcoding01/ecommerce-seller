@@ -72,6 +72,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     private int calculateDiscountPercentage(int mrpPrice, int sellingPrice) {
+        if(mrpPrice <= 0) {
+            throw new IllegalArgumentException("MrpPrice must be greater than 0");
+        }
     }
 
     @Override

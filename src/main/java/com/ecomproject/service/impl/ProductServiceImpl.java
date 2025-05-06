@@ -34,7 +34,7 @@ public class ProductServiceImpl implements ProductService {
         Category category2 = categoryRepository.findByCategoryId(req.getCategory2());
         if(category2 == null) {
             Category newCategory = new Category();
-            
+            newCategory.setCategoryId(req.getCategory2());
         }
         return null;
     }

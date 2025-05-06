@@ -53,7 +53,7 @@ public class ProductServiceImpl implements ProductService {
         }
 
         Product product = new Product();
-        
+        product.setSeller(seller);
 
         return null;
     }

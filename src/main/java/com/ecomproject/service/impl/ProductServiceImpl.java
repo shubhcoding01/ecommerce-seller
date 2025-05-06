@@ -61,6 +61,7 @@ public class ProductServiceImpl implements ProductService {
         product.setTitle(req.getTitle());
         product.setColor(req.getColor());
         product.setSellingprice(req.getSellingPrice());
+        product.setImages(req.getImages());
 
         return null;
     }

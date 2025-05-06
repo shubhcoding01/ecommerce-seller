@@ -76,7 +76,8 @@ public class ProductServiceImpl implements ProductService {
             throw new IllegalArgumentException("MrpPrice must be greater than 0");
         }
         double discount = mrpPrice - sellingPrice;
-        
+        double discountPercentage = (discount/mrpPrice)*100;
+        return (int)discountPercentage;
     }
 
     @Override

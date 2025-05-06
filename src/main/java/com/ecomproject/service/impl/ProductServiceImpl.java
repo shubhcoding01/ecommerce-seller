@@ -58,6 +58,7 @@ public class ProductServiceImpl implements ProductService {
         product.setCategory(category3);
         product.setDescription(req.getDescription());
         product.setCreatedAt(LocalDateTime.now());
+        product.setTitle(req.getTitle());
 
         return null;
     }

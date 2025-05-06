@@ -59,6 +59,7 @@ public class ProductServiceImpl implements ProductService {
         product.setDescription(req.getDescription());
         product.setCreatedAt(LocalDateTime.now());
         product.setTitle(req.getTitle());
+        product.setColor(req.getColor());
 
         return null;
     }

@@ -53,7 +53,7 @@ public class ProductServiceImpl implements ProductService {
             category3 = categoryRepository.save(newCategory);
         }
 
-        int discountPercentage = calculateDiscount
+        int discountPercentage = calculateDiscountPercentage(req.getMrpPrice(),req.getSellingPrice());
 
         Product product = new Product();
         product.setSeller(seller);
@@ -69,6 +69,9 @@ public class ProductServiceImpl implements ProductService {
         product.setDiscountPercent();
 
         return productRepository.save(product);
+    }
+
+    private int calculateDiscountPercentage(int mrpPrice, int sellingPrice) {
     }
 
     @Override

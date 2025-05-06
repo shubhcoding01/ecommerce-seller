@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -56,6 +57,7 @@ public class ProductServiceImpl implements ProductService {
         product.setSeller(seller);
         product.setCategory(category3);
         product.setDescription(req.getDescription());
+        product.setCreatedAt(LocalDateTime.now());
 
         return null;
     }

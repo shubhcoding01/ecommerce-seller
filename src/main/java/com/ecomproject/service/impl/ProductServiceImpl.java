@@ -52,6 +52,9 @@ public class ProductServiceImpl implements ProductService {
             category3 = categoryRepository.save(newCategory);
         }
 
+        Product product = new Product();
+        
+
         return null;
     }
 

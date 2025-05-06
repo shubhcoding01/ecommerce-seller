@@ -65,7 +65,7 @@ public class ProductServiceImpl implements ProductService {
         product.setMrpprice(req.getMrpPrice());
         product.setSizes(req.getSizes());
 
-        return null;
+        return productRepository.save(product);
     }
 
     @Override

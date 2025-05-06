@@ -66,7 +66,7 @@ public class ProductServiceImpl implements ProductService {
         product.setImages(req.getImages());
         product.setMrpprice(req.getMrpPrice());
         product.setSizes(req.getSizes());
-        product.setDiscountPercent();
+        product.setDiscountPercent(discountPercentage);
 
         return productRepository.save(product);
     }
@@ -75,6 +75,7 @@ public class ProductServiceImpl implements ProductService {
         if(mrpPrice <= 0) {
             throw new IllegalArgumentException("MrpPrice must be greater than 0");
         }
+        double discount = mrp
     }
 
     @Override

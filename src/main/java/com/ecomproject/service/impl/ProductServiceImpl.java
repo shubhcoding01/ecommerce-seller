@@ -55,6 +55,7 @@ public class ProductServiceImpl implements ProductService {
         Product product = new Product();
         product.setSeller(seller);
         product.setCategory(category3);
+        product.setDescription(req.getDescription());
 
         return null;
     }

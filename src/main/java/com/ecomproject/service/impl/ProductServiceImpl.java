@@ -47,6 +47,7 @@ public class ProductServiceImpl implements ProductService {
         if(category3 == null) {
             Category newCategory = new Category();
             newCategory.setCategoryId(req.getCategory3());
+            newCategory.setLevel(3);
         }
 
         return null;

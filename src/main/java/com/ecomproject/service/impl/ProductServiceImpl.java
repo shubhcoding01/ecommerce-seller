@@ -148,7 +148,7 @@ public class ProductServiceImpl implements ProductService {
                 predicates.add(criteriaBuilder.equal(root.get("stock"), stock));
             }
 
-            
+            return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
         };
         return null;
     }

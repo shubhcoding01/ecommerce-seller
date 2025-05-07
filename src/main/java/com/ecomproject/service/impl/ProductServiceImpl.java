@@ -91,7 +91,8 @@ public class ProductServiceImpl implements ProductService {
     public Product updateProduct(Long productId, Product product) {
         findProductById(productId);
         product.setId(productId);
-        return null;
+
+        return productRepository.save(product);
     }
 
     @Override

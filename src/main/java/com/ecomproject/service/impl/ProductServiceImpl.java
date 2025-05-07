@@ -122,6 +122,10 @@ public class ProductServiceImpl implements ProductService {
                 Join<Product, Category> categoryJoin = root.join("category");
                 predicates.add(criteriaBuilder.equal(categoryJoin.get("categoryId"), category));
             }
+
+            if(colors != null && !colors.isEmpty()) {
+                
+            }
         };
         return null;
     }

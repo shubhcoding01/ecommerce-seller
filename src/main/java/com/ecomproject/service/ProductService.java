@@ -1,5 +1,6 @@
 package com.ecomproject.service;
 
+import com.ecomproject.exceptions.ProductException;
 import com.ecomproject.model.Product;
 import com.ecomproject.model.Seller;
 import com.ecomproject.request.CreateProductRequest;
@@ -12,7 +13,7 @@ public interface ProductService {
     public Product createProduct(CreateProductRequest req, Seller seller);
     public void deleteProduct(Long productId);
     public Product updateProduct(Long productId,Product product);
-    Product findProductById(Long productId);
+    Product findProductById(Long productId) throws ProductException;
     List<Product> searchProduct();
     public Page<Product> getAllProducts(
             String category,

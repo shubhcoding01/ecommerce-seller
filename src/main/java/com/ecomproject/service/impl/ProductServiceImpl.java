@@ -141,8 +141,10 @@ public class ProductServiceImpl implements ProductService {
             }
 
             if(minDiscount != null) {
-                
+                predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get("discountpercent"), minDiscount));
             }
+
+            
         };
         return null;
     }

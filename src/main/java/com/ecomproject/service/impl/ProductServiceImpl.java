@@ -8,11 +8,14 @@ import com.ecomproject.repository.CategoryRepository;
 import com.ecomproject.repository.ProductRepository;
 import com.ecomproject.request.CreateProductRequest;
 import com.ecomproject.service.ProductService;
+import jakarta.persistence.criteria.Predicate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -110,6 +113,10 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Page<Product> getAllProducts(String category, String brand, String colors, String sizes, Integer minPrice, Integer maxPrice, Integer minDiscount, String sort, String stock, Integer pageNumber) {
+        Specification<Product> spec = ((root, query, criteriaBuilder) ->
+        {
+            List<Predicate> predicates = new ArrayList<>();
+        });
         return null;
     }
 

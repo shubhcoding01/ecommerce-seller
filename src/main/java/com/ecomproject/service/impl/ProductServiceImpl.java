@@ -145,8 +145,10 @@ public class ProductServiceImpl implements ProductService {
             }
 
             if (stock != null) {
-                
+                predicates.add(criteriaBuilder.equal(root.get("stock"), stock));
             }
+
+            
         };
         return null;
     }

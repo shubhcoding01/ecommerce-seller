@@ -12,6 +12,7 @@ import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.Predicate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -149,7 +150,10 @@ public class ProductServiceImpl implements ProductService {
             }
 
             return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
+
         };
+
+        Pageable pageable;
         return null;
     }
 

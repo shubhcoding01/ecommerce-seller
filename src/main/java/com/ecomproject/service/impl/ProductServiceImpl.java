@@ -1,5 +1,6 @@
 package com.ecomproject.service.impl;
 
+import com.ecomproject.exceptions.ProductException;
 import com.ecomproject.model.Category;
 import com.ecomproject.model.Product;
 import com.ecomproject.model.Seller;
@@ -97,7 +98,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product findProductById(Long productId) {
-        return productRepository.findById(productId).orElse(null);
+        return productRepository.findById(productId).orElseThrow(
+                () -> new ProductException("Product not found")
+        );
     }
 
     @Override

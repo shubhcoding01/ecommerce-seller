@@ -82,7 +82,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void deleteProduct(Long productId) {
-
+        Product product = findProductById(productId);
     }
 
     @Override

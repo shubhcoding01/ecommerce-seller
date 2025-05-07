@@ -127,14 +127,21 @@ public class ProductServiceImpl implements ProductService {
 
                 predicates.add(criteriaBuilder.equal(root.get("color"), colors));
             }
+
             if(sizes != null && !sizes.isEmpty()) {
                 predicates.add(criteriaBuilder.equal(root.get("size"), sizes));
             }
+
             if(minPrice != null) {
                 predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get("sellingprice"), minPrice));
             }
+
             if(maxPrice != null) {
                 predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get("sellingprice"), maxPrice));
+            }
+
+            if(minDiscount != null) {
+                
             }
         };
         return null;

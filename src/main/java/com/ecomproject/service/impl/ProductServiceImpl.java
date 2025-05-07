@@ -90,6 +90,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product updateProduct(Long productId, Product product) {
         findProductById(productId);
+        product.setId(productId);
         return null;
     }
 

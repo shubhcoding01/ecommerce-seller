@@ -124,7 +124,8 @@ public class ProductServiceImpl implements ProductService {
             }
 
             if(colors != null && !colors.isEmpty()) {
-                
+
+                predicates.add(criteriaBuilder.equal(root.get("color"), colors));
             }
         };
         return null;

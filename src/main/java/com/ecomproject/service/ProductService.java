@@ -12,7 +12,7 @@ public interface ProductService {
 
     public Product createProduct(CreateProductRequest req, Seller seller);
     public void deleteProduct(Long productId) throws ProductException;
-    public Product updateProduct(Long productId,Product product);
+    public Product updateProduct(Long productId,Product product) throws ProductException;
     Product findProductById(Long productId) throws ProductException;
     List<Product> searchProduct();
     public Page<Product> getAllProducts(

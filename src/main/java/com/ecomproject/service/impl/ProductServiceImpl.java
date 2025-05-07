@@ -8,6 +8,7 @@ import com.ecomproject.repository.CategoryRepository;
 import com.ecomproject.repository.ProductRepository;
 import com.ecomproject.request.CreateProductRequest;
 import com.ecomproject.service.ProductService;
+import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.Predicate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -118,7 +119,8 @@ public class ProductServiceImpl implements ProductService {
             List<Predicate> predicates = new ArrayList<>();
 
             if(category != null) {
-
+                Join<Product, Category> categoryJoin = root.join("category");
+                predicates.add(criteriaBuilder.equal(categoryJoin.get("categoryId"), category));
             }
         };
         return null;

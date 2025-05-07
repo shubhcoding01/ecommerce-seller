@@ -168,6 +168,11 @@ public class ProductServiceImpl implements ProductService {
                     pageable = PageRequest.of(pageNumber != null? pageNumber:0, 10,
                             Sort.by("sellingPrice").descending());
                     break;
+
+                default:
+                    pageable = PageRequest.of(pageNumber != null? pageNumber:0, 10,
+                            Sort.by("sellingPrice").ascending());
+                    break;
             }
         }
 

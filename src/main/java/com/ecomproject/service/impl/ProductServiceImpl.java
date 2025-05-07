@@ -84,11 +84,12 @@ public class ProductServiceImpl implements ProductService {
     public void deleteProduct(Long productId) {
         Product product = findProductById(productId);
         productRepository.delete(product);
-        
+
     }
 
     @Override
     public Product updateProduct(Long productId, Product product) {
+        findProductById(productId);
         return null;
     }
 

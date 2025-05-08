@@ -168,7 +168,7 @@ public class ProductServiceImpl implements ProductService {
             };
         }
         else {
-            pageable = PageRequest.of(pageNumber != null ? pageNumber : 0, 10);
+            pageable = PageRequest.of(pageNumber != null ? pageNumber : 0, 10, Sort.unsorted());
         }
 
         return null;

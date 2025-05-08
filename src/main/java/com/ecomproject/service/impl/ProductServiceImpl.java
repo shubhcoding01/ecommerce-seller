@@ -158,22 +158,14 @@ public class ProductServiceImpl implements ProductService {
         Pageable pageable;
 
         if (sort != null && !sort.isEmpty()) {
-            switch (sort) {
-                case "price_low":
-                    pageable = PageRequest.of(pageNumber != null? pageNumber:0, 10,
-                            Sort.by("sellingPrice").ascending());
-                    break;
-
-                case "price_high":
-                    pageable = PageRequest.of(pageNumber != null? pageNumber:0, 10,
-                            Sort.by("sellingPrice").descending());
-                    break;
-
-                default:
-                    pageable = PageRequest.of(pageNumber != null? pageNumber:0, 10,
-                            Sort.unsorted());
-                    break;
-            }
+            pageable = switch (sort) {
+                case "price_low" -> PageRequest.of(pageNumber != null ? pageNumber : 0, 10,
+                        Sort.by("sellingPrice").ascending());
+                case "price_high" -> PageRequest.of(pageNumber != null ? pageNumber : 0, 10,
+                        Sort.by("sellingPrice").descending());
+                default -> PageRequest.of(pageNumber != null ? pageNumber : 0, 10,
+                        Sort.unsorted());
+            };
         }
 
         return null;

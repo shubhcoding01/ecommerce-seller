@@ -170,8 +170,8 @@ public class ProductServiceImpl implements ProductService {
         else {
             pageable = PageRequest.of(pageNumber != null ? pageNumber : 0, 10, Sort.unsorted());
         }
-            productRepository.findAll(spec,pageable);
-        return null;
+
+        return productRepository.findAll(spec,pageable);
     }
 
     @Override

@@ -4,15 +4,14 @@ import com.ecomproject.exceptions.ProductException;
 import com.ecomproject.exceptions.SellerException;
 import com.ecomproject.model.Product;
 import com.ecomproject.model.Seller;
+import com.ecomproject.request.CreateProductRequest;
 import com.ecomproject.service.ProductService;
 import com.ecomproject.service.SellerService;
+import jdk.jshell.spi.ExecutionControl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,7 +33,13 @@ public class SellerProductController {
 
     }
 
+    @PostMapping()
     public ResponseEntity<Product> createProduct(
-            
-    )
+
+            @RequestBody CreateProductRequest request,
+            @RequestHeader("Authorization") String jwt)
+        throws ExecutionControl.UserException,
+            ProductException, SellerException {
+        
+    }
 }

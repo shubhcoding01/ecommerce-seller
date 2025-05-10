@@ -39,6 +39,7 @@ public class ProductController {
            @RequestParam(required = false) String category,
            @RequestParam(required = false) String brand,
            @RequestParam(required = false) String color,
+           @RequestParam(required = false) String size,
            
            )
 }

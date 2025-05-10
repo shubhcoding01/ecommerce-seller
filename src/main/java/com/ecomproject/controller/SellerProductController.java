@@ -3,9 +3,11 @@ package com.ecomproject.controller;
 import com.ecomproject.exceptions.ProductException;
 import com.ecomproject.exceptions.SellerException;
 import com.ecomproject.model.Product;
+import com.ecomproject.model.Seller;
 import com.ecomproject.service.ProductService;
 import com.ecomproject.service.SellerService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -24,8 +26,13 @@ public class SellerProductController {
 
     @GetMapping()
     public ResponseEntity<List<Product>> getProductBySellerId(
-          @RequestHeader("Authorization") String jwt) throws ProductException,
-            SellerException {
+          @RequestHeader("Authorization") String jwt) throws Exception {
+        Seller seller = sellerService.getSellerProfile(jwt);
+
+        List<Product> products = productService.getProductsBySellerId(seller.getId());
+        return new ResponseEntity<>(products,HttpStatus.OK);
 
     }
+
+    
 }

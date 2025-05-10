@@ -33,5 +33,7 @@ public class Cart {
 
     private  int totalDiscount;
 
+    private int discount;
+
     private String couponCode;
 }

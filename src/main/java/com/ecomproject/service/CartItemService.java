@@ -1,4 +1,4 @@
 package com.ecomproject.service;
 
-public class CartItemService {
+public interface CartItemService {
 }

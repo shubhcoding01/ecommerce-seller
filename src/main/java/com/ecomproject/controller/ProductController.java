@@ -37,5 +37,6 @@ public class ProductController {
     @GetMapping
     public ResponseEntity<Page<Product>> getAllProducts(
            @RequestParam(required = false) String category,
-    )
+           @RequestParam(required = false) String brand,
+           )
 }

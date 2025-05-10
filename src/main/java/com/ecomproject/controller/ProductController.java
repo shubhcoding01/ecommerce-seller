@@ -41,6 +41,7 @@ public class ProductController {
            @RequestParam(required = false) String color,
            @RequestParam(required = false) String size,
            @RequestParam(required = false) Integer minPrice,
+           @RequestParam(required = false) Integer maxPrice,
            
            )
 }

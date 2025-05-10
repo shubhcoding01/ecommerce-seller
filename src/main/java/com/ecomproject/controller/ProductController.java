@@ -45,6 +45,8 @@ public class ProductController {
            @RequestParam(required = false) Integer minDiscount,
            @RequestParam(required = false) String sort,
            @RequestParam(required = false) String stock,
-           
-           )
+           @RequestParam(defaultValue = "0") Integer pageNumber) {
+
+        
+    }
 }

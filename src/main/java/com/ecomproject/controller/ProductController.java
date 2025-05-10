@@ -20,6 +20,6 @@ public class ProductController {
             @PathVariable long productId)
     throws ProductException
     {
-        
+        Product product = productService.findProductById(productId);
     }
 }

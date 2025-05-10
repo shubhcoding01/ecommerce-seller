@@ -4,6 +4,7 @@ import com.ecomproject.exceptions.ProductException;
 import com.ecomproject.model.Product;
 import com.ecomproject.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,5 +34,8 @@ public class ProductController {
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
-    
+    @GetMapping
+    public ResponseEntity<Page<Product>> getAllProducts(
+            
+    )
 }

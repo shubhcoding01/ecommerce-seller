@@ -56,4 +56,15 @@ public class SellerProductController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @PutMapping("/{productId}")
+    public ResponseEntity<Product> updateProduct(@PathVariable Long productId,
+                                                 @RequestBody Product product) {
+        try {
+            Product updatedProduct = productService.updateProduct(productId, product);
+            return new ResponseEntity<>(updatedProduct,HttpStatus.OK);
+        } catch (ProductException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }

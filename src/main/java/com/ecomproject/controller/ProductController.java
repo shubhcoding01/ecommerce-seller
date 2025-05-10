@@ -44,6 +44,7 @@ public class ProductController {
            @RequestParam(required = false) Integer maxPrice,
            @RequestParam(required = false) Integer minDiscount,
            @RequestParam(required = false) String sort,
+           @RequestParam(required = false) String stock,
            
            )
 }

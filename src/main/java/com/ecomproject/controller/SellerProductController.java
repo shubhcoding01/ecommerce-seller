@@ -34,5 +34,7 @@ public class SellerProductController {
 
     }
 
-    
+    public ResponseEntity<Product> createProduct(
+            
+    )
 }

@@ -38,8 +38,11 @@ public class SellerProductController {
 
             @RequestBody CreateProductRequest request,
             @RequestHeader("Authorization") String jwt)
-        throws ExecutionControl.UserException,
-            ProductException, SellerException {
-        
+            throws Exception {
+
+        Seller seller = sellerService.getSellerProfile(jwt);
+
+        Product product = productService.createProduct(request, seller);
+        return new ResponseEntity<>(product,HttpStatus.CREATED);
     }
 }

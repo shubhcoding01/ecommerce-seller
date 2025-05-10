@@ -4,6 +4,7 @@ import com.ecomproject.exceptions.ProductException;
 import com.ecomproject.model.Product;
 import com.ecomproject.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,5 +22,6 @@ public class ProductController {
     throws ProductException
     {
         Product product = productService.findProductById(productId);
+        return new ResponseEntity<>(product, HttpStatus.OK);
     }
 }

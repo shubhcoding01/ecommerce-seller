@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/products")
@@ -26,4 +28,7 @@ public class ProductController {
         Product product = productService.findProductById(productId);
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
+
+
+    public ResponseEntity<List<Product>>
 }

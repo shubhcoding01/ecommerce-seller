@@ -1,6 +1,7 @@
 package com.ecomproject.service.impl;
 
 import com.ecomproject.model.CartItem;
+import com.ecomproject.model.User;
 import com.ecomproject.repository.CartItemRepository;
 import com.ecomproject.service.CartItemService;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +15,10 @@ public class CartItemServiceImpl implements CartItemService {
 
     @Override
     public CartItem updateCartItem(Long userId, Long id, CartItem cartItem) {
+        CartItem item = findCartItemById(id);
+
+        User cartItemUser = item.getCart().getUser();
+        
         return null;
     }
 

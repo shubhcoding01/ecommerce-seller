@@ -2,10 +2,14 @@ package com.ecomproject.service.impl;
 
 import com.ecomproject.model.*;
 import com.ecomproject.service.OrderService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Set;
 
+@Service
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
     @Override
     public Set<Order> createOrders(User user, Address shippingAddress, Cart cart) {

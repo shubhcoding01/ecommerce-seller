@@ -31,6 +31,13 @@ public class CartItemServiceImpl implements CartItemService {
     @Override
     public void removeCartItem(Long userId, Long cartItemId) {
 
+        CartItem item = findCartItemById(cartItemId);
+
+        User cartItemUser = item.getCart().getUser();
+
+        if(cartItemUser.getId().equals(userId)) {
+            cartItemRepository.delete(item);
+        }
     }
 
     @Override

@@ -1,17 +1,16 @@
 package com.ecomproject.controller;
 
 import com.ecomproject.model.Cart;
+import com.ecomproject.model.CartItem;
 import com.ecomproject.model.User;
+import com.ecomproject.request.AddItemRequest;
 import com.ecomproject.service.CartItemService;
 import com.ecomproject.service.CartService;
 import com.ecomproject.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -34,6 +33,8 @@ public class CartController {
         return new ResponseEntity<Cart>(cart, HttpStatus.OK);
     }
 
-    
+    public ResponseEntity<CartItem> addItemToCart(
+            @RequestBody AddItemRequest req,
+            @RequestHeader("Authorization") String jwt)
 
 }

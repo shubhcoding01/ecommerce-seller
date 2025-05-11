@@ -6,6 +6,7 @@ import com.ecomproject.model.User;
 import com.ecomproject.request.AddItemRequest;
 import com.ecomproject.service.CartItemService;
 import com.ecomproject.service.CartService;
+import com.ecomproject.service.ProductService;
 import com.ecomproject.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,7 @@ public class CartController {
     private final CartService cartService;
     private final CartItemService cartItemService;
     private final UserService userService;
+    private final ProductService productService;
 
 
     @GetMapping

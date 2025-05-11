@@ -68,8 +68,15 @@ public class CartController {
         User user = userService.findUserByJwtToken(jwt);
         ApiResponse response = new ApiResponse();
         response.setMessage("Successfully deleted item from the cart");
-        
+
         return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
+
+    @PutMapping("/item/{cartItemId}")
+    public ResponseEntity<CartItem> updateCartItemHandler(
+            @PathVariable Long cartItemId,
+            @RequestBody CartItem cartItem,
+            @RequestHeader("Authorization") String jwt)
+        throws Exception{}
 
 }

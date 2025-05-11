@@ -14,7 +14,7 @@ public class CartItemServiceImpl implements CartItemService {
     private final CartItemRepository cartItemRepository;
 
     @Override
-    public CartItem updateCartItem(Long userId, Long id, CartItem cartItem) {
+    public CartItem updateCartItem(Long userId, Long id, CartItem cartItem) throws Exception {
         CartItem item = findCartItemById(id);
 
         User cartItemUser = item.getCart().getUser();
@@ -25,7 +25,7 @@ public class CartItemServiceImpl implements CartItemService {
             item.setSellingPrice(item.getQuantity()*item.getProduct().getSellingprice());
             return cartItemRepository.save(item);
         }
-        return null;
+        throw new Exception("You can't Update this cart-Item");
     }
 
     @Override

@@ -66,6 +66,8 @@ public class CartController {
         throws Exception{
 
         User user = userService.findUserByJwtToken(jwt);
+        cartItemService.removeCartItem(user.getId(), cartItemId);
+
         ApiResponse response = new ApiResponse();
         response.setMessage("Successfully deleted item from the cart");
 

@@ -1,6 +1,7 @@
 package com.ecomproject.controller;
 
 import com.ecomproject.model.Cart;
+import com.ecomproject.model.User;
 import com.ecomproject.service.CartItemService;
 import com.ecomproject.service.CartService;
 import com.ecomproject.service.UserService;
@@ -23,7 +24,7 @@ public class CartController {
     public ResponseEntity<Cart> findUserCartHandler(
             @RequestHeader("Authorization") String jwt) throws Exception{
 
-        
+        User user = userService.findUserByJwtToken(jwt);
     }
 
 

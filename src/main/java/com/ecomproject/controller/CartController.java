@@ -6,6 +6,7 @@ import com.ecomproject.model.CartItem;
 import com.ecomproject.model.Product;
 import com.ecomproject.model.User;
 import com.ecomproject.request.AddItemRequest;
+import com.ecomproject.response.ApiResponse;
 import com.ecomproject.service.CartItemService;
 import com.ecomproject.service.CartService;
 import com.ecomproject.service.ProductService;
@@ -45,6 +46,16 @@ public class CartController {
 
         User user = userService.findUserByJwtToken(jwt);
         Product product = productService.findProductById(req.getProductId());
+
+        CartItem item = cartService.addCartItem(user,
+                product,
+                req.getSize(),
+                req.getQuantity());
+
+        ApiResponse response = new ApiResponse();
+        response.setMessage("Successfully added item to the cart");
+
+        return new ResponseEntity<>(item, HttpStatus.ACCEPTED);
     }
 
 }

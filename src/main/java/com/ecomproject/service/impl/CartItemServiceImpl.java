@@ -1,4 +1,6 @@
 package com.ecomproject.service.impl;
 
-public class CartItemServiceImpl {
+import com.ecomproject.service.CartItemService;
+
+public class CartItemServiceImpl implements CartItemService {
 }

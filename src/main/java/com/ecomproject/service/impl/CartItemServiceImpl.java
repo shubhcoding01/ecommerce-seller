@@ -18,7 +18,10 @@ public class CartItemServiceImpl implements CartItemService {
         CartItem item = findCartItemById(id);
 
         User cartItemUser = item.getCart().getUser();
-        
+
+        if(cartItemUser.getId().equals(userId)) {
+            item.setQuantity(cartItem.getQuantity());
+        }
         return null;
     }
 

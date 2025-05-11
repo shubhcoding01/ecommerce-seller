@@ -6,6 +6,7 @@ import com.ecomproject.service.CartItemService;
 import com.ecomproject.service.CartService;
 import com.ecomproject.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +26,12 @@ public class CartController {
             @RequestHeader("Authorization") String jwt) throws Exception{
 
         User user = userService.findUserByJwtToken(jwt);
+
+        Cart cart = cartService.findCartUser(user);
+
+        return new ResponseEntity<Cart>(cart, HttpStatus.OK);
     }
 
+    
 
 }

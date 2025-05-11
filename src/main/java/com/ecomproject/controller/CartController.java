@@ -1,13 +1,16 @@
 package com.ecomproject.controller;
 
+import com.ecomproject.exceptions.ProductException;
 import com.ecomproject.model.Cart;
 import com.ecomproject.model.CartItem;
+import com.ecomproject.model.Product;
 import com.ecomproject.model.User;
 import com.ecomproject.request.AddItemRequest;
 import com.ecomproject.service.CartItemService;
 import com.ecomproject.service.CartService;
 import com.ecomproject.service.ProductService;
 import com.ecomproject.service.UserService;
+import jdk.jshell.spi.ExecutionControl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,6 +40,11 @@ public class CartController {
 
     public ResponseEntity<CartItem> addItemToCart(
             @RequestBody AddItemRequest req,
-            @RequestHeader("Authorization") String jwt)
+            @RequestHeader("Authorization") String jwt) throws
+             ProductException, Exception{
+
+        User user = userService.findUserByJwtToken(jwt);
+        Product product = productService.findProductById(req.getProductId());
+    }
 
 }

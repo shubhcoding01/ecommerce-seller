@@ -29,7 +29,7 @@ public class CartItemServiceImpl implements CartItemService {
     }
 
     @Override
-    public void removeCartItem(Long userId, Long cartItemId) {
+    public void removeCartItem(Long userId, Long cartItemId) throws Exception {
 
         CartItem item = findCartItemById(cartItemId);
 
@@ -38,6 +38,7 @@ public class CartItemServiceImpl implements CartItemService {
         if(cartItemUser.getId().equals(userId)) {
             cartItemRepository.delete(item);
         }
+        else throw new Exception("You can't delete this item");
     }
 
     @Override

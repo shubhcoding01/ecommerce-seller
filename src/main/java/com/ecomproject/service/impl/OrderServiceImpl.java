@@ -120,4 +120,9 @@ public class OrderServiceImpl implements OrderService {
 
         return orderRepository.save(order);
     }
+
+    @Override
+    public OrderItem findById(Long id) {
+        return null;
+    }
 }

@@ -56,6 +56,8 @@ public class OrderServiceImpl implements OrderService {
             Order savedOrder = orderRepository.save(createdOrder);
             orders.add(savedOrder);
 
+            List<OrderItem> orderItems = new ArrayList<>();
+
             for (CartItem item : items) {
                 OrderItem orderItem = new OrderItem();
                 orderItem.setOrder(savedOrder);
@@ -67,6 +69,9 @@ public class OrderServiceImpl implements OrderService {
                 orderItem.setSellingPrice(item.getSellingPrice());
 
                 savedOrder.getOrderItems().add(orderItem);
+
+                OrderItem savedOrderItem = orderItemRepository.save(orderItem);
+                orderItems.add(savedOrderItem);
 
             }
         }

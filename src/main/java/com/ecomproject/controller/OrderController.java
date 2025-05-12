@@ -2,6 +2,9 @@ package com.ecomproject.controller;
 
 import com.ecomproject.domain.PaymentMethod;
 import com.ecomproject.model.Address;
+import com.ecomproject.model.Cart;
+import com.ecomproject.model.Order;
+import com.ecomproject.model.User;
 import com.ecomproject.response.PaymentLinkResponse;
 import com.ecomproject.service.CartService;
 import com.ecomproject.service.OrderService;
@@ -9,6 +12,8 @@ import com.ecomproject.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Set;
 
 @RestController
 @RequiredArgsConstructor
@@ -26,5 +31,8 @@ public class OrderController {
             @RequestHeader("Authorization")String jwt)
         throws Exception {
 
+        User user = userService.findUserByJwtToken(jwt);
+        Cart cart = cartService.findCartUser(user);
+        Set<Order> orders = orderService.createOrders(user, shippingAddress,cart);
     }
 }

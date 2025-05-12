@@ -32,6 +32,14 @@ public class OrderServiceImpl implements OrderService {
 
         for (Map.Entry<Long, List<CartItem>> entry : itemsBySeller.entrySet()) {
             Long sellerId = entry.getKey();
+            List<CartItem> items = entry.getValue();
+
+            int totalOrderPrice = items.stream().mapToInt(
+                    CartItem::getSellingPrice
+            ).sum();
+            int totalItem = items.stream().mapToInt(CartItem::getQuantity).sum();
+
+            Order order = new Order();
         }
 
         return Set.of();

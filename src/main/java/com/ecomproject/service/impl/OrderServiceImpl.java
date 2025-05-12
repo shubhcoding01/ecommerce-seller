@@ -1,5 +1,6 @@
 package com.ecomproject.service.impl;
 
+import com.ecomproject.domain.PaymentStatus;
 import com.ecomproject.model.*;
 import com.ecomproject.repository.AddressRepository;
 import com.ecomproject.repository.OrderRepository;
@@ -45,6 +46,13 @@ public class OrderServiceImpl implements OrderService {
             createdOrder.setSellerId(sellerId);
             createdOrder.setTotalMrpPrice(totalOrderPrice);
             createdOrder.setTotalSellingPrice(totalOrderPrice);
+            createdOrder.setTotalItem(totalItem);
+            createdOrder.setShippingAddress(address);
+            createdOrder.setOrderStatus(OrderStatus.PENDING);
+            createdOrder.getPaymentDetails().setStatus(PaymentStatus.PENDING);
+
+            Order savedOrder = orderRepository.save(createdOrder);
+            orders.add(savedOrder);
         }
 
         return Set.of();

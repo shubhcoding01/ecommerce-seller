@@ -7,10 +7,7 @@ import com.ecomproject.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -31,6 +28,11 @@ public class OrderServiceImpl implements OrderService {
         Map<Long, List<CartItem>> itemsBySeller = cart.getCartItems().stream()
                 .collect(Collectors.groupingBy(item->item.getProduct()
                         .getSeller().getId()));
+        Set<Order> orders = new HashSet<>();
+
+        for (Map.Entry<Long, List<CartItem>> entry : itemsBySeller.entrySet()) {
+            Long sellerId = entry.getKey();
+        }
 
         return Set.of();
     }

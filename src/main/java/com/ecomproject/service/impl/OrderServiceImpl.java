@@ -42,6 +42,7 @@ public class OrderServiceImpl implements OrderService {
             Order createdOrder = new Order();
 
             createdOrder.setUser(user);
+            createdOrder.setSellerId(sellerId);
             
         }
 

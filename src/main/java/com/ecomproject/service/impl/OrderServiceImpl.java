@@ -39,7 +39,10 @@ public class OrderServiceImpl implements OrderService {
             ).sum();
             int totalItem = items.stream().mapToInt(CartItem::getQuantity).sum();
 
-            Order order = new Order();
+            Order createdOrder = new Order();
+
+            createdOrder.setUser(user);
+            
         }
 
         return Set.of();

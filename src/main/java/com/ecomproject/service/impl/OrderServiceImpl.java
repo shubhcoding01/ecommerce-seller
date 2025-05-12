@@ -80,12 +80,15 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order findOrderById(long id) {
-        return null;
+    public Order findOrderById(long id) throws Exception {
+
+        return orderRepository.findById(id).orElseThrow(()->
+                new Exception("Order Not Fount....!!!!"));
     }
 
     @Override
     public List<Order> usersOrderHistory(Long userId) {
+
         return List.of();
     }
 

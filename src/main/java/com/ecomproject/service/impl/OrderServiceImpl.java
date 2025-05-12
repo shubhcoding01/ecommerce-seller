@@ -53,6 +53,16 @@ public class OrderServiceImpl implements OrderService {
 
             Order savedOrder = orderRepository.save(createdOrder);
             orders.add(savedOrder);
+
+            for (CartItem item : items) {
+                OrderItem orderItem = new OrderItem();
+                orderItem.setOrder(savedOrder);
+                orderItem.setMrpPrice(item.getMrpPrice());
+                orderItem.setProduct(item.getProduct());
+                orderItem.setQuantity(item.getQuantity());
+                orderItem.setSize(item.getSize());
+                
+            }
         }
 
         return Set.of();

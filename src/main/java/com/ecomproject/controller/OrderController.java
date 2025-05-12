@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -59,5 +60,10 @@ public class OrderController {
         return new ResponseEntity<>(paymentLinkResponse, HttpStatus.OK);
     }
 
-    
+    @GetMapping("/user")
+    public ResponseEntity<List<Order>> usersOrderHistoryHandler(
+            @RequestHeader("Authorization")
+            String jwt) throws Exception {
+        User user = userService.findUserByJwtToken(jwt);
+    }
 }

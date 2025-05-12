@@ -22,11 +22,11 @@ public class SellerReportServiceImpl implements SellerReportService {
             newSellerReport.setSeller(seller);
             return sellerReportRepository.save(newSellerReport);
         }
-        return null;
+        return sellerReport;
     }
 
     @Override
     public SellerReport updateSellerReport(SellerReport sellerReport) {
-        return null;
+        return sellerReportRepository.save(sellerReport);
     }
 }

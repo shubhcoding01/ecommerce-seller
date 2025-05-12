@@ -12,6 +12,7 @@ import com.ecomproject.response.ApiResponse;
 import com.ecomproject.response.AuthResponse;
 import com.ecomproject.service.AuthService;
 import com.ecomproject.service.EmailService;
+import com.ecomproject.service.SellerReportService;
 import com.ecomproject.service.SellerService;
 import com.ecomproject.util.OtpUtil;
 import jakarta.mail.MessagingException;
@@ -32,6 +33,7 @@ public class SellerController {
     private final AuthService authService;
     private final EmailService emailService;
     private final JwtProvider jwtProvider;
+    private final SellerReportService sellerReportService;
 
 //    @PostMapping("/sent/loginotp")
 //    public ResponseEntity<ApiResponse> sentOtpHandler(
@@ -114,14 +116,14 @@ public class SellerController {
         return new ResponseEntity<>(seller, HttpStatus.OK);
     }
 
-//    @GetMapping("/report")
-//    public ResponseEntity<SellerReport> getSellerReport(
-//            @RequestHeader("Authorization") String jwt) throws Exception {
+    @GetMapping("/report")
+    public ResponseEntity<SellerReport> getSellerReport(
+            @RequestHeader("Authorization") String jwt) throws Exception {
 //        String email = jwtProvider.getEmailFromToken(jwt);
-//        Seller seller = sellerService.getSellerByEmail(email);
-//        SellerReport sellerReport = sellerReportService.getSellerReport(seller);
-//        return new ResponseEntity<>(sellerReport, HttpStatus.OK);
-//    }
+        Seller seller = sellerService.getSellerProfile(jwt);
+        SellerReport sellerReport = sellerReportService.getSellerReport(seller);
+        return new ResponseEntity<>(sellerReport, HttpStatus.OK);
+    }
 
     @GetMapping
     public ResponseEntity<List<Seller>> getAllSeller(

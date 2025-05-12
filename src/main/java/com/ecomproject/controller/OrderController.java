@@ -68,4 +68,23 @@ public class OrderController {
         List<Order> orders = orderService.usersOrderHistory(user.getId());
         return new ResponseEntity<>(orders, HttpStatus.ACCEPTED);
     }
+
+    @GetMapping("/{orderId}")
+    public ResponseEntity<Order> getOrderById(
+            @PathVariable Long orderId,
+            @RequestHeader("Authorization")String jwt) throws Exception {
+        User user = userService.findUserByJwtToken(jwt);
+        Order order = orderService.findOrderById(orderId);
+        return new ResponseEntity<>(order, HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping("/item/{orderItemId}")
+    public ResponseEntity<OrderItem> getOrderItemById(
+            @PathVariable Long orderItemId,
+            @RequestHeader("Authorization") String jwt)
+        throws Exception {
+        User user = userService.findUserByJwtToken(jwt);
+        OrderItem orderItem = orderService.findOrderItemById(orderItemId);
+        return new ResponseEntity<>(orderItem, HttpStatus.ACCEPTED);
+    }
 }

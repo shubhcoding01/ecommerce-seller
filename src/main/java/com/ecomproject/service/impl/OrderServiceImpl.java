@@ -7,8 +7,11 @@ import com.ecomproject.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -24,6 +27,10 @@ public class OrderServiceImpl implements OrderService {
             user.getAddresses().add(shippingAddress);
         }
         Address address = addressRepository.save(shippingAddress);
+
+        Map<Long, List<CartItem>> itemsBySeller = cart.getCartItems().stream()
+                .collect(Collectors.groupingBy(item->item.getProduct()
+                        .getSeller().getId()));
 
         return Set.of();
     }

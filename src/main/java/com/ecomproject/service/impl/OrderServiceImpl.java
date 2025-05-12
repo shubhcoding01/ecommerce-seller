@@ -99,8 +99,12 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order updateOrderStatus(Long orderId, OrderStatus orderStatus) {
-        return null;
+    public Order updateOrderStatus(Long orderId, OrderStatus orderStatus) throws Exception {
+
+        Order order = findOrderById(orderId);
+        order.setOrderStatus(orderStatus);
+
+        return orderRepository.save(order);
     }
 
     @Override

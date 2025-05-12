@@ -43,7 +43,7 @@ public class OrderServiceImpl implements OrderService {
 
             createdOrder.setUser(user);
             createdOrder.setSellerId(sellerId);
-            
+            createdOrder.setTotalMrpPrice(totalOrderPrice);
         }
 
         return Set.of();

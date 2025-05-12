@@ -108,7 +108,16 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order cancelOrder(Long orderId, User user) {
-        return null;
+    public Order cancelOrder(Long orderId, User user) throws Exception {
+
+        Order order = findOrderById(orderId);
+
+        if(user.getId().equals(order.getUser().getId())) {
+            throw new Exception("You don't have access to this order");
+        }
+
+        order.setOrderStatus(OrderStatus.CANCELLED);
+
+        return orderRepository.save(order);
     }
 }

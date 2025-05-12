@@ -3,6 +3,7 @@ package com.ecomproject.service.impl;
 import com.ecomproject.domain.PaymentStatus;
 import com.ecomproject.model.*;
 import com.ecomproject.repository.AddressRepository;
+import com.ecomproject.repository.OrderItemRepository;
 import com.ecomproject.repository.OrderRepository;
 import com.ecomproject.service.OrderService;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,7 @@ public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
     private final AddressRepository addressRepository;
+    private final OrderItemRepository orderItemRepository;
 
     @Override
     public Set<Order> createOrders(User user, Address shippingAddress, Cart cart) {
@@ -63,7 +65,9 @@ public class OrderServiceImpl implements OrderService {
                 orderItem.setSize(item.getSize());
                 orderItem.setUserId(item.getUserId());
                 orderItem.setSellingPrice(item.getSellingPrice());
+
                 savedOrder.getOrderItems().add(orderItem);
+
             }
         }
 

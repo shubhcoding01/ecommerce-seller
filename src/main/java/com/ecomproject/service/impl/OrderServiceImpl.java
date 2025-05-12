@@ -89,12 +89,13 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<Order> usersOrderHistory(Long userId) {
 
-        return List.of();
+        return orderRepository.findByUserId(userId);
     }
 
     @Override
     public List<Order> sellersOrder(Long sellerId) {
-        return List.of();
+
+        return orderRepository.findBySellerId(sellerId);
     }
 
     @Override

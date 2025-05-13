@@ -1,10 +1,11 @@
 package com.ecomproject.controller;
 
+import com.ecomproject.response.ApiResponse;
 import com.ecomproject.service.PaymentService;
 import com.ecomproject.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
@@ -13,4 +14,14 @@ public class PaymentController {
 
     private final PaymentService paymentService;
     private final UserService userService;
+
+    @GetMapping("/{paymentId}")
+    public ResponseEntity<ApiResponse> paymentSuccessHandler(
+            @PathVariable String paymentId,
+            @RequestParam String paymentLinkId,
+            @RequestHeader("Authorization") String jwt)
+            throws Exception {
+
+        
+    }
 }

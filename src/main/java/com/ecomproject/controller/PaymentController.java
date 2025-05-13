@@ -1,14 +1,10 @@
 package com.ecomproject.controller;
 
-import com.ecomproject.model.PaymentOrder;
-import com.ecomproject.model.User;
+import com.ecomproject.model.*;
 import com.ecomproject.repository.SellerReportRepository;
 import com.ecomproject.response.ApiResponse;
 import com.ecomproject.response.PaymentLinkResponse;
-import com.ecomproject.service.OrderService;
-import com.ecomproject.service.PaymentService;
-import com.ecomproject.service.SellerService;
-import com.ecomproject.service.UserService;
+import com.ecomproject.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +19,7 @@ public class PaymentController {
     private final SellerService sellerService;
     private final OrderService orderService;
     private final SellerReportRepository sellerReportRepository;
+    private final SellerReportService sellerReportService;
 
     @GetMapping("/{paymentId}")
     public ResponseEntity<ApiResponse> paymentSuccessHandler(
@@ -44,6 +41,13 @@ public class PaymentController {
                 paymentLinkId
         );
         if (paymentSuccess) {
+
+            for (Order order:paymentOrder.getOrders()){
+//                transactionService.createTransaction(order);
+                Seller seller = sellerService.getSellerById(order.getSellerId());
+                SellerReport sellerReport = sellerReportService.getSellerReport(seller);
+                sellerReport.setTotalOrders(sellerReport.getTotalOrders() + 1);
+            }
 
         }
     }

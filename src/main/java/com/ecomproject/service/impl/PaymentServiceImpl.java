@@ -1,6 +1,7 @@
 package com.ecomproject.service.impl;
 
 import com.ecomproject.domain.PaymentOrderStatus;
+import com.ecomproject.domain.PaymentStatus;
 import com.ecomproject.model.Order;
 import com.ecomproject.model.PaymentOrder;
 import com.ecomproject.model.User;
@@ -67,8 +68,10 @@ public class PaymentServiceImpl implements PaymentService {
             if (status.equals("captured")){
                 Set<Order> orders = paymentOrder.getOrders();
                 for (Order order : orders) {
-                    
+                    order.setPaymentStatus(PaymentStatus.COMPLETED);
+                    orderRepository.save(order);
                 }
+                
                 return true;
 
             }

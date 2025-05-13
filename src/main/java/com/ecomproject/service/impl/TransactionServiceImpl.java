@@ -1,4 +1,6 @@
 package com.ecomproject.service.impl;
 
-public class TransactionServiceImpl {
+import com.ecomproject.service.TransactionService;
+
+public class TransactionServiceImpl implements TransactionService {
 }

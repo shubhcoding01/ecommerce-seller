@@ -74,11 +74,13 @@ public class PaymentServiceImpl implements PaymentService {
                 paymentOrder.setStatus(PaymentOrderStatus.SUCCESS);
                 paymentOrderRepository.save(paymentOrder);
                 return true;
-
             }
+            paymentOrder.setStatus(PaymentOrderStatus.FAILED);
+            paymentOrderRepository.save(paymentOrder);
+            return false;
         }
 
-        return null;
+        return false;
     }
 
     @Override

@@ -12,6 +12,7 @@ import com.razorpay.Payment;
 import com.razorpay.PaymentLink;
 import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
+import com.stripe.Stripe;
 import lombok.RequiredArgsConstructor;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,7 @@ public class PaymentServiceImpl implements PaymentService {
     private OrderRepository orderRepository;
     private String apiKey="apiKey";
     private String apiSecret="apiSecret";
+    private String stripeSecretKey="stripeSecretKey";
 
     @Override
     public PaymentOrder createOrder(User user, Set<Order> orders) {
@@ -128,7 +130,12 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    public String createStripePaymentLink(User user, Long amount, Long orderId) {
+    public String createStripePaymentLink(User user,
+                                          Long amount,
+                                          Long orderId) {
+
+        Stripe.apiKey=stripeSecretKey;
+
         return "";
     }
 }

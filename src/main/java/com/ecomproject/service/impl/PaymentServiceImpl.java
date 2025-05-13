@@ -13,6 +13,7 @@ import com.razorpay.PaymentLink;
 import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
 import lombok.RequiredArgsConstructor;
+import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -89,6 +90,22 @@ public class PaymentServiceImpl implements PaymentService {
                                                  Long orderId) {
 
         amount = amount * 100;
+
+        try {
+            RazorpayClient razorPay = new RazorpayClient(apiKey,apiSecret);
+
+            JSONObject paymentLinkRequest = new JSONObject();
+
+            paymentLinkRequest.put("amount", amount);
+            paymentLinkRequest.put("currency", "INR" );
+
+            JSONObject customer = new JSONObject();
+            customer.put("Name", user.getFullName());
+            
+        }
+        catch (Exception e){
+
+        }
 
         return null;
     }

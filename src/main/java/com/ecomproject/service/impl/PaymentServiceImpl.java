@@ -114,7 +114,10 @@ public class PaymentServiceImpl implements PaymentService {
 
             PaymentLink paymentLink = razorPay.paymentLink.create(paymentLinkRequest);
 
-            
+            String paymentLinkUrl= paymentLink.get("short_url");
+            String paymentLinkId= paymentLink.get("id");
+
+            return paymentLink;
         }
         catch (Exception e){
 

@@ -31,8 +31,10 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    public PaymentOrder getPaymentOrderById(String orderId) {
-        return null;
+    public PaymentOrder getPaymentOrderById(Long orderId) throws Exception {
+
+        return paymentOrderRepository.findById(orderId).orElseThrow(() ->
+                new Exception("Payment Order not found"));
     }
 
     @Override

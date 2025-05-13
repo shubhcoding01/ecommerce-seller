@@ -104,7 +104,9 @@ public class PaymentServiceImpl implements PaymentService {
             customer.put("Email", user.getEmail());
             paymentLinkRequest.put("customer", customer );
 
-            
+            JSONObject notification = new JSONObject();
+            notification.put("email", true );
+            paymentLinkRequest.put("notification", notification);
         }
         catch (Exception e){
 

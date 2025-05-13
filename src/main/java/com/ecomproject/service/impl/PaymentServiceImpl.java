@@ -9,6 +9,7 @@ import com.ecomproject.repository.PaymentOrderRepository;
 import com.ecomproject.service.PaymentService;
 import com.razorpay.PaymentLink;
 import com.razorpay.RazorpayClient;
+import com.razorpay.RazorpayException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -55,7 +56,7 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     public Boolean ProceedPaymentOrder(PaymentOrder paymentOrder,
                                        String paymentId,
-                                       String paymentLinkId) {
+                                       String paymentLinkId) throws RazorpayException {
 
         if(paymentOrder.getStatus().equals(PaymentOrderStatus.PENDING)){
             RazorpayClient razorPay = new RazorpayClient(apiKey,apiSecret);

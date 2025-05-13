@@ -4,6 +4,7 @@ import com.ecomproject.model.Order;
 import com.ecomproject.model.PaymentOrder;
 import com.ecomproject.model.User;
 import com.razorpay.PaymentLink;
+import com.razorpay.RazorpayException;
 
 import java.util.Set;
 
@@ -14,7 +15,7 @@ public interface PaymentService {
     PaymentOrder getPaymentOrderByPaymentId(String orderId) throws Exception;
     Boolean ProceedPaymentOrder(PaymentOrder paymentOrder,
                                 String paymentId,
-                                String paymentLinkId);
+                                String paymentLinkId) throws RazorpayException;
     PaymentLink createRazorpayPaymentLink(User user, Long amount,
                                           Long orderId);
     String createStripePaymentLink(User user,

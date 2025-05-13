@@ -112,6 +112,8 @@ public class PaymentServiceImpl implements PaymentService {
                     "https://localhost:5454/payment-success"+orderId);
             paymentLinkRequest.put("callback_method", "get");
 
+            PaymentLink paymentLink = razorPay.paymentLink.create(paymentLinkRequest);
+
             
         }
         catch (Exception e){

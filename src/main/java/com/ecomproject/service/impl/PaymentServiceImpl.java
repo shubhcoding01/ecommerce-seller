@@ -1,5 +1,6 @@
 package com.ecomproject.service.impl;
 
+import com.ecomproject.domain.PaymentOrderStatus;
 import com.ecomproject.model.Order;
 import com.ecomproject.model.PaymentOrder;
 import com.ecomproject.model.User;
@@ -7,6 +8,7 @@ import com.ecomproject.repository.OrderRepository;
 import com.ecomproject.repository.PaymentOrderRepository;
 import com.ecomproject.service.PaymentService;
 import com.razorpay.PaymentLink;
+import com.razorpay.RazorpayClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,8 @@ public class PaymentServiceImpl implements PaymentService {
 
     private PaymentOrderRepository paymentOrderRepository;
     private OrderRepository orderRepository;
+    private String apiKey="apiKey";
+    private String apiSecret="apiSecret";
 
     @Override
     public PaymentOrder createOrder(User user, Set<Order> orders) {
@@ -49,12 +53,23 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    public Boolean ProceedPaymentOrder(PaymentOrder paymentOrder, String paymentId, String paymentLinkId) {
+    public Boolean ProceedPaymentOrder(PaymentOrder paymentOrder,
+                                       String paymentId,
+                                       String paymentLinkId) {
+
+        if(paymentOrder.getStatus().equals(PaymentOrderStatus.PENDING)){
+            RazorpayClient razorPay = new RazorpayClient(apiKey,apiSecret);
+        }
+
         return null;
     }
 
     @Override
-    public PaymentLink createRazorpayPaymentLink(User user, Long amount, Long orderId) {
+    public PaymentLink createRazorpayPaymentLink(User user,
+                                                 Long amount,
+                                                 Long orderId) {
+
+
         return null;
     }
 

@@ -88,6 +88,7 @@ public class PaymentServiceImpl implements PaymentService {
                                                  Long amount,
                                                  Long orderId) {
 
+        amount = amount * 100;
 
         return null;
     }

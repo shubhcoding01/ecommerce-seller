@@ -142,7 +142,10 @@ public class PaymentServiceImpl implements PaymentService {
                 .setMode(SessionCreateParams.Mode.PAYMENT)
                 .setSuccessUrl("https://localhost:5454/payment-success"+orderId)
                 .setCancelUrl("https://localhost:5454/payment-cancel")
-                .
+                .addLineItem(SessionCreateParams.LineItem.builder()
+                        .setQuantity(1L)
+                        .setPriceData(SessionCreateParams.LineItem.PriceData.builder()
+                                .setCurrency("usd"))    )
                 .build()
 
         return "";

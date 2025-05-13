@@ -107,6 +107,9 @@ public class PaymentServiceImpl implements PaymentService {
             JSONObject notification = new JSONObject();
             notification.put("email", true );
             paymentLinkRequest.put("notification", notification);
+
+            paymentLinkRequest.put("callback_url",
+                    "https://localhost:5454/payment-success"+orderId);
         }
         catch (Exception e){
 

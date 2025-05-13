@@ -1,5 +1,6 @@
 package com.ecomproject.controller;
 
+import com.ecomproject.model.User;
 import com.ecomproject.response.ApiResponse;
 import com.ecomproject.service.PaymentService;
 import com.ecomproject.service.UserService;
@@ -22,6 +23,6 @@ public class PaymentController {
             @RequestHeader("Authorization") String jwt)
             throws Exception {
 
-        
+        User user = userService.findUserByJwtToken(jwt);
     }
 }

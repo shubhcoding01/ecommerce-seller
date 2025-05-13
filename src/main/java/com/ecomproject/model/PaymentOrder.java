@@ -26,7 +26,7 @@ public class PaymentOrder {
 
     private PaymentMethod paymentMethod;
 
-    private String paymentLinked;
+    private String paymentLinkId;
 
     @ManyToOne
     private User user;

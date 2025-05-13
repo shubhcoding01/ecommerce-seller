@@ -110,6 +110,9 @@ public class PaymentServiceImpl implements PaymentService {
 
             paymentLinkRequest.put("callback_url",
                     "https://localhost:5454/payment-success"+orderId);
+            paymentLinkRequest.put("callback_method", "get");
+
+            
         }
         catch (Exception e){
 

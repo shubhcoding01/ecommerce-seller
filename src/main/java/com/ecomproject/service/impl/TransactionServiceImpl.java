@@ -1,6 +1,25 @@
 package com.ecomproject.service.impl;
 
+import com.ecomproject.model.Order;
+import com.ecomproject.model.Seller;
+import com.ecomproject.model.Transaction;
 import com.ecomproject.service.TransactionService;
 
+import java.util.List;
+
 public class TransactionServiceImpl implements TransactionService {
+    @Override
+    public Transaction createTransaction(Order order) {
+        return null;
+    }
+
+    @Override
+    public List<Transaction> getTransactionsBySellerId(Seller seller) {
+        return List.of();
+    }
+
+    @Override
+    public List<Transaction> getAllTransactions() {
+        return List.of();
+    }
 }

@@ -150,9 +150,12 @@ public class PaymentServiceImpl implements PaymentService {
                                 .setProductData(
                                         SessionCreateParams
                                                 .LineItem.PriceData.ProductData
-                                                .builder().setName()
-                                )))
-                .build()
+                                                .builder().setName("Shubh Ecom Seller PAyment")
+                                                .build()
+                                ).build()
+                        ).build()
+                ).build();
+                
 
         return "";
     }

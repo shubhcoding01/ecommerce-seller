@@ -6,6 +6,7 @@ import com.ecomproject.response.ApiResponse;
 import com.ecomproject.response.PaymentLinkResponse;
 import com.ecomproject.service.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,8 +48,17 @@ public class PaymentController {
                 Seller seller = sellerService.getSellerById(order.getSellerId());
                 SellerReport sellerReport = sellerReportService.getSellerReport(seller);
                 sellerReport.setTotalOrders(sellerReport.getTotalOrders() + 1);
+                sellerReport.setTotalEarnings(sellerReport.getTotalEarnings() + order.getTotalSellingPrice());
+                sellerReport.setTotalSales(sellerReport.getTotalSales() + order.getOrderItems().size());
+                sellerReportService.updateSellerReport(sellerReport);
             }
 
         }
+
+        ApiResponse apiResponse = new ApiResponse();
+        apiResponse.setMessage("Payment successful");
+
+        return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
     }
+
 }

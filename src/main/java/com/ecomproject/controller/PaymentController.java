@@ -31,5 +31,14 @@ public class PaymentController {
 
         PaymentOrder paymentOrder = paymentService
                 .getPaymentOrderByPaymentId(paymentLinkId);
+
+        boolean paymentSuccess = paymentService.ProceedPaymentOrder(
+                paymentOrder,
+                paymentId,
+                paymentLinkId
+        );
+        if (paymentSuccess) {
+            
+        }
     }
 }

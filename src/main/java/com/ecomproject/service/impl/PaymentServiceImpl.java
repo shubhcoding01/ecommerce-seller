@@ -13,6 +13,7 @@ import com.razorpay.PaymentLink;
 import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
 import com.stripe.Stripe;
+import com.stripe.param.checkout.SessionCreateParams;
 import lombok.RequiredArgsConstructor;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
@@ -135,6 +136,14 @@ public class PaymentServiceImpl implements PaymentService {
                                           Long orderId) {
 
         Stripe.apiKey=stripeSecretKey;
+
+        SessionCreateParams params = SessionCreateParams.builder()
+                .addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD)
+                .setMode(SessionCreateParams.Mode.PAYMENT)
+                .setSuccessUrl("https://localhost:5454/payment-success"+orderId)
+                .setCancelUrl("https://localhost:5454/payment-cancel")
+                .
+                .build()
 
         return "";
     }

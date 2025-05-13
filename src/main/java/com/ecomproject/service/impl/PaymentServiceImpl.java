@@ -7,6 +7,7 @@ import com.ecomproject.model.User;
 import com.ecomproject.repository.OrderRepository;
 import com.ecomproject.repository.PaymentOrderRepository;
 import com.ecomproject.service.PaymentService;
+import com.razorpay.Payment;
 import com.razorpay.PaymentLink;
 import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
@@ -60,6 +61,12 @@ public class PaymentServiceImpl implements PaymentService {
 
         if(paymentOrder.getStatus().equals(PaymentOrderStatus.PENDING)){
             RazorpayClient razorPay = new RazorpayClient(apiKey,apiSecret);
+
+            Payment payment = razorPay.payments.fetch(paymentId);
+            String status= payment.get("status");
+            if (status.equals("captured")){
+                
+            }
         }
 
         return null;

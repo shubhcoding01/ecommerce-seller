@@ -101,6 +101,9 @@ public class PaymentServiceImpl implements PaymentService {
 
             JSONObject customer = new JSONObject();
             customer.put("Name", user.getFullName());
+            customer.put("Email", user.getEmail());
+            paymentLinkRequest.put("customer", customer );
+
             
         }
         catch (Exception e){

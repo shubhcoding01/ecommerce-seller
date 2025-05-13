@@ -148,7 +148,9 @@ public class PaymentServiceImpl implements PaymentService {
                                 .setCurrency("usd")
                                 .setUnitAmount(amount*100)
                                 .setProductData(
-                                        
+                                        SessionCreateParams
+                                                .LineItem.PriceData.ProductData
+                                                .builder().setName()
                                 )))
                 .build()
 

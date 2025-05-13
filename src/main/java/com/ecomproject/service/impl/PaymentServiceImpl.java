@@ -21,8 +21,13 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public PaymentOrder createOrder(User user, Set<Order> orders) {
-        
-        return null;
+        Long amount = orders.stream().mapToLong(Order::getTotalSellingPrice).sum();
+
+        PaymentOrder paymentOrder = new PaymentOrder();
+        paymentOrder.setAmount(amount);
+        paymentOrder.setUser(user);
+        paymentOrder.setOrders(orders);
+        return paymentOrderRepository.save(paymentOrder);
     }
 
     @Override

@@ -13,6 +13,8 @@ import com.razorpay.PaymentLink;
 import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
 import com.stripe.Stripe;
+import com.stripe.exception.StripeException;
+import com.stripe.model.checkout.Session;
 import com.stripe.param.checkout.SessionCreateParams;
 import lombok.RequiredArgsConstructor;
 import org.json.JSONObject;
@@ -133,7 +135,7 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     public String createStripePaymentLink(User user,
                                           Long amount,
-                                          Long orderId) {
+                                          Long orderId) throws StripeException {
 
         Stripe.apiKey=stripeSecretKey;
 
@@ -155,7 +157,8 @@ public class PaymentServiceImpl implements PaymentService {
                                 ).build()
                         ).build()
                 ).build();
-                
+
+        Session session = com.stripe.model.checkout.Session.create(params);
 
         return "";
     }

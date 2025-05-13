@@ -1,7 +1,9 @@
 package com.ecomproject.controller;
 
+import com.ecomproject.model.PaymentOrder;
 import com.ecomproject.model.User;
 import com.ecomproject.response.ApiResponse;
+import com.ecomproject.response.PaymentLinkResponse;
 import com.ecomproject.service.PaymentService;
 import com.ecomproject.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -24,5 +26,10 @@ public class PaymentController {
             throws Exception {
 
         User user = userService.findUserByJwtToken(jwt);
+
+        PaymentLinkResponse paymentResponse ;
+
+        PaymentOrder paymentOrder = paymentService
+                .getPaymentOrderByPaymentId(paymentLinkId);
     }
 }

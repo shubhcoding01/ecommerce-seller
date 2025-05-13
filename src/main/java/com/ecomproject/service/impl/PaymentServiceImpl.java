@@ -87,7 +87,7 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     public PaymentLink createRazorpayPaymentLink(User user,
                                                  Long amount,
-                                                 Long orderId) {
+                                                 Long orderId) throws RazorpayException {
 
         amount = amount * 100;
 
@@ -121,9 +121,10 @@ public class PaymentServiceImpl implements PaymentService {
         }
         catch (Exception e){
 
+            System.out.println(e.getMessage());
+            throw new RazorpayException(e.getMessage());
         }
 
-        return null;
     }
 
     @Override

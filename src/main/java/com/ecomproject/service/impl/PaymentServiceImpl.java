@@ -65,7 +65,12 @@ public class PaymentServiceImpl implements PaymentService {
             Payment payment = razorPay.payments.fetch(paymentId);
             String status= payment.get("status");
             if (status.equals("captured")){
-                
+                Set<Order> orders = paymentOrder.getOrders();
+                for (Order order : orders) {
+                    
+                }
+                return true;
+
             }
         }
 

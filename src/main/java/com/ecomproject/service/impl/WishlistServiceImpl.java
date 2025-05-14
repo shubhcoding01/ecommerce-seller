@@ -13,9 +13,10 @@ import org.springframework.stereotype.Service;
 public class WishlistServiceImpl implements WishlistService {
 
     private final WishlistRepository wishlistRepository;
-    
+
     @Override
     public Wishlist createWishlist(User user) {
+        Wishlist wishlist = new Wishlist();
         return null;
     }
 

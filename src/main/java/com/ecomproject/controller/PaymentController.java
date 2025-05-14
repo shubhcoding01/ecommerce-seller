@@ -21,6 +21,7 @@ public class PaymentController {
     private final OrderService orderService;
     private final SellerReportRepository sellerReportRepository;
     private final SellerReportService sellerReportService;
+    private final TransactionService transactionService;
 
     @GetMapping("/{paymentId}")
     public ResponseEntity<ApiResponse> paymentSuccessHandler(

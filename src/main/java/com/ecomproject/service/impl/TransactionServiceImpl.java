@@ -34,11 +34,13 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public List<Transaction> getTransactionsBySellerId(Seller seller) {
+
         return transactionRepository.findBySellerId(seller.getId());
     }
 
     @Override
     public List<Transaction> getAllTransactions() {
-        return List.of();
+
+        return sellerRepository.findAll();
     }
 }

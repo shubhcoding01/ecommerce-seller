@@ -1,4 +1,4 @@
 package com.ecomproject.repository;
 
-public interface WatchlistRepository {
+public interface WishlistRepository {
 }

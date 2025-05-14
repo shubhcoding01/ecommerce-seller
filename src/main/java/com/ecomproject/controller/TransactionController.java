@@ -30,6 +30,7 @@ public class TransactionController {
         return ResponseEntity.ok(transactions);
     }
 
+    @GetMapping
     public ResponseEntity<List<Transaction>> getAllTransactions()
 }
 

@@ -4,9 +4,13 @@ import com.ecomproject.model.Order;
 import com.ecomproject.model.Seller;
 import com.ecomproject.model.Transaction;
 import com.ecomproject.service.TransactionService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class TransactionServiceImpl implements TransactionService {
     @Override
     public Transaction createTransaction(Order order) {

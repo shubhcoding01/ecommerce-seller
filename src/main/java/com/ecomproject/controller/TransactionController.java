@@ -26,6 +26,7 @@ public class TransactionController {
             @RequestHeader("Authorization") String jwt) throws Exception {
         Seller seller = sellerService.getSellerProfile(jwt);
 
+        List<Transaction> transactions = transactionService.getTransactionsBySellerId(seller);
         
     }
 }

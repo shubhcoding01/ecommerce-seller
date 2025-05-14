@@ -22,7 +22,7 @@ public class TransactionController {
 
     @GetMapping("/seller")
     public ResponseEntity<List<Transaction>> getTransactionBySeller(
-            @RequestHeader()
+            @RequestHeader("Authorization")
     ) {}
 }
 

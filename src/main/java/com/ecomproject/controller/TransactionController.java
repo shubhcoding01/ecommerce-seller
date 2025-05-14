@@ -1,5 +1,6 @@
 package com.ecomproject.controller;
 
+import com.ecomproject.model.Seller;
 import com.ecomproject.model.Transaction;
 import com.ecomproject.service.SellerService;
 import com.ecomproject.service.TransactionService;
@@ -23,7 +24,7 @@ public class TransactionController {
     @GetMapping("/seller")
     public ResponseEntity<List<Transaction>> getTransactionBySeller(
             @RequestHeader("Authorization") String jwt) throws Exception {
-        
+        Seller seller = sellerService.getSellerProfile()
     }
 }
 

@@ -5,6 +5,7 @@ import com.ecomproject.service.SellerService;
 import com.ecomproject.service.TransactionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +19,7 @@ public class TransactionController {
     private final TransactionService transactionService;
     private final SellerService sellerService;
 
+    @GetMapping()
     public ResponseEntity<List<Transaction>> getTransactionBySeller() {}
 }
 

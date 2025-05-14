@@ -29,5 +29,7 @@ public class TransactionController {
         List<Transaction> transactions = transactionService.getTransactionsBySellerId(seller);
         return ResponseEntity.ok(transactions);
     }
+
+    public ResponseEntity<List<Transaction>> getAllTransactions()
 }
 

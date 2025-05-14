@@ -29,7 +29,7 @@ public class TransactionServiceImpl implements TransactionService {
         transaction.setCustomer(order.getUser());
         transaction.setOrder(order);
 
-        return null;
+        return transactionRepository.save(transaction);
     }
 
     @Override

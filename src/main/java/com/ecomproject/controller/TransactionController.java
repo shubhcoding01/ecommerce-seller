@@ -22,6 +22,8 @@ public class TransactionController {
 
     @GetMapping("/seller")
     public ResponseEntity<List<Transaction>> getTransactionBySeller(
-            @RequestHeader("Authorization") String jwt)  {}
+            @RequestHeader("Authorization") String jwt) throws Exception {
+        
+    }
 }
 

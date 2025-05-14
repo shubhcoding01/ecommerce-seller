@@ -27,7 +27,7 @@ public class TransactionController {
         Seller seller = sellerService.getSellerProfile(jwt);
 
         List<Transaction> transactions = transactionService.getTransactionsBySellerId(seller);
-        
+        return ResponseEntity.ok(transactions);
     }
 }
 

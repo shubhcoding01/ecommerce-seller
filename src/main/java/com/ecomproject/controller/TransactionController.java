@@ -24,7 +24,9 @@ public class TransactionController {
     @GetMapping("/seller")
     public ResponseEntity<List<Transaction>> getTransactionBySeller(
             @RequestHeader("Authorization") String jwt) throws Exception {
-        Seller seller = sellerService.getSellerProfile()
+        Seller seller = sellerService.getSellerProfile(jwt);
+
+        
     }
 }
 

@@ -45,7 +45,7 @@ public class PaymentController {
         if (paymentSuccess) {
 
             for (Order order:paymentOrder.getOrders()){
-//                transactionService.createTransaction(order);
+                transactionService.createTransaction(order);
                 Seller seller = sellerService.getSellerById(order.getSellerId());
                 SellerReport sellerReport = sellerReportService.getSellerReport(seller);
                 sellerReport.setTotalOrders(sellerReport.getTotalOrders() + 1);

@@ -19,7 +19,7 @@ public class TransactionController {
     private final TransactionService transactionService;
     private final SellerService sellerService;
 
-    @GetMapping()
+    @GetMapping("/seller")
     public ResponseEntity<List<Transaction>> getTransactionBySeller() {}
 }
 

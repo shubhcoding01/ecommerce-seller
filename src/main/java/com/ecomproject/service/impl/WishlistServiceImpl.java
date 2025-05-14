@@ -1,4 +1,6 @@
 package com.ecomproject.service.impl;
 
-public class WishlistServiceImpl {
+import com.ecomproject.service.WishlistService;
+
+public class WishlistServiceImpl implements WishlistService {
 }

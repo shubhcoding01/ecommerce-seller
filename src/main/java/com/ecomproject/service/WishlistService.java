@@ -6,4 +6,5 @@ import com.ecomproject.model.Wishlist;
 public interface WishlistService {
 
     Wishlist createWishlist(User user);
+    Wishlist getWishlist(User user );
 }

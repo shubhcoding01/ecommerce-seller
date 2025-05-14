@@ -17,6 +17,7 @@ public class WishlistServiceImpl implements WishlistService {
     @Override
     public Wishlist createWishlist(User user) {
         Wishlist wishlist = new Wishlist();
+        wishlist.setUser(user);
         return null;
     }
 

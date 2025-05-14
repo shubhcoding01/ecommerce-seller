@@ -23,6 +23,7 @@ public class TransactionServiceImpl implements TransactionService {
         Seller seller = sellerRepository.findById(order.getSellerId()).get();
         Transaction transaction = new Transaction();
         transaction.setSeller(seller);
+        transaction.setCustomer(order.getUser());
         return null;
     }
 

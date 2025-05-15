@@ -1,5 +1,6 @@
 package com.ecomproject.controller;
 
+import com.ecomproject.model.User;
 import com.ecomproject.model.Wishlist;
 import com.ecomproject.service.UserService;
 import com.ecomproject.service.WishlistService;
@@ -20,5 +21,8 @@ public class WishlistController {
 
     @GetMapping()
     public ResponseEntity<Wishlist> getWishlistByUserId(
-            @RequestHeader("Authorization") String jwt) {}
+            @RequestHeader("Authorization") String jwt) {
+
+        User user = userService.findUserByJwtToken(jwt);
+    }
 }

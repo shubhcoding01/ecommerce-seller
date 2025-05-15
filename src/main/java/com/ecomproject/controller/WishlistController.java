@@ -20,6 +20,5 @@ public class WishlistController {
 
     @GetMapping()
     public ResponseEntity<Wishlist> getWishlistByUserId(
-            @RequestHeader
-    ) {}
+            @RequestHeader("Authorization") String jwt) {}
 }

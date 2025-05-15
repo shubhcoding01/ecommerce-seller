@@ -8,5 +8,5 @@ public interface WishlistService {
 
     Wishlist createWishlist(User user);
     Wishlist getWishlistUserId(User user );
-    Wishlist addProductToWishlist(Wishlist wishlist, Product product);
+    Wishlist addProductToWishlist(User user, Product product);
 }

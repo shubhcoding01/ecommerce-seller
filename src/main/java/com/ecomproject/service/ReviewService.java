@@ -4,5 +4,5 @@ import com.ecomproject.model.Review;
 
 public interface ReviewService {
 
-    Review  
+    Review createReview(Review review);
 }

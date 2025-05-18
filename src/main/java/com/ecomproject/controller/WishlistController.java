@@ -2,6 +2,7 @@ package com.ecomproject.controller;
 
 import com.ecomproject.model.User;
 import com.ecomproject.model.Wishlist;
+import com.ecomproject.service.ProductService;
 import com.ecomproject.service.UserService;
 import com.ecomproject.service.WishlistService;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,7 @@ public class WishlistController {
 
     private final WishlistService wishlistService;
     private final UserService userService;
+    private final ProductService productService;
 
     @GetMapping()
     public ResponseEntity<Wishlist> getWishlistByUserId(

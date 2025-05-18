@@ -8,5 +8,5 @@ public interface ReviewService {
 
     Review createReview(Review review);
 
-    List<Review> getReviews();
+    List<Review> getReviewByProductId(Long productId);
 }

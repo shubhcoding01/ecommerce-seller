@@ -1,5 +1,6 @@
 package com.ecomproject.controller;
 
+import com.ecomproject.model.Product;
 import com.ecomproject.model.User;
 import com.ecomproject.model.Wishlist;
 import com.ecomproject.service.ProductService;
@@ -31,6 +32,7 @@ public class WishlistController {
     public ResponseEntity<Wishlist> addProductToWishlist(
             @PathVariable Long productId,
             @RequestHeader("Authorization") String jwt) throws Exception {
-        
+
+        Product product = productService.findProductById(productId);
     }
 }

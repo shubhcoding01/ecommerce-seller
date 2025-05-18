@@ -28,5 +28,7 @@ public class WishlistController {
     }
 
     @PostMapping("/add-product/{productId}")
-    public ResponseEntity<Wishlist> addProductToWishlist()
+    public ResponseEntity<Wishlist> addProductToWishlist(
+            @PathVariable 
+    )
 }

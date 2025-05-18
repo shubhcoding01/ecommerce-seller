@@ -30,5 +30,6 @@ public class WishlistController {
     @PostMapping("/add-product/{productId}")
     public ResponseEntity<Wishlist> addProductToWishlist(
             @PathVariable Long productId,
+            @RequestHeader
     )
 }

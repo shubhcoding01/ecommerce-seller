@@ -1,4 +1,4 @@
 package com.ecomproject.service;
 
-public class ReviewService {
+public interface ReviewService {
 }

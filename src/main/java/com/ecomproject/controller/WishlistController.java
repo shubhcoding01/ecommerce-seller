@@ -39,5 +39,6 @@ public class WishlistController {
                 user,
                 product
         );
+        return ResponseEntity.ok(updatedWishlist);
     }
 }

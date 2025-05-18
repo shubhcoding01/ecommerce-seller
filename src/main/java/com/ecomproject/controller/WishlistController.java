@@ -25,5 +25,6 @@ public class WishlistController {
 
         User user = userService.findUserByJwtToken(jwt);
         Wishlist wishlist = wishlistService.getWishlistUserId(user);
+        return ResponseEntity.ok(wishlist);
     }
 }

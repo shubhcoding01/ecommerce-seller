@@ -38,6 +38,6 @@ public class WishlistController {
         Wishlist updatedWishlist = wishlistService.addProductToWishlist(
                 user,
                 product
-        )
+        );
     }
 }

@@ -34,5 +34,6 @@ public class WishlistController {
             @RequestHeader("Authorization") String jwt) throws Exception {
 
         Product product = productService.findProductById(productId);
+        User user = userService.findUserByJwtToken(jwt);
     }
 }

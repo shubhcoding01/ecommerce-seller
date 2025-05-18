@@ -1,5 +1,6 @@
 package com.ecomproject.service;
 
+import com.ecomproject.model.Product;
 import com.ecomproject.model.Review;
 import com.ecomproject.model.User;
 
@@ -8,7 +9,8 @@ import java.util.List;
 public interface ReviewService {
 
     Review createReview(CreateReviewRequest req,
-                        User user);
+                        User user,
+                        Product product);
 
     List<Review> getReviewByProductId(Long productId);
 }

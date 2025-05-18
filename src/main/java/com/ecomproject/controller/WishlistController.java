@@ -21,7 +21,7 @@ public class WishlistController {
 
     @GetMapping()
     public ResponseEntity<Wishlist> getWishlistByUserId(
-            @RequestHeader("Authorization") String jwt) {
+            @RequestHeader("Authorization") String jwt) throws Exception {
 
         User user = userService.findUserByJwtToken(jwt);
     }

@@ -35,5 +35,8 @@ public class WishlistController {
 
         Product product = productService.findProductById(productId);
         User user = userService.findUserByJwtToken(jwt);
+        Wishlist updatedWishlist = wishlistService.addProductToWishlist(
+                
+        )
     }
 }

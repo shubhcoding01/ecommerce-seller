@@ -27,6 +27,6 @@ public class WishlistController {
         return ResponseEntity.ok(wishlist);
     }
 
-    @PostMapping
+    @PostMapping("/add-product/{productId}")
     public ResponseEntity<Wishlist> addProductToWishlist()
 }

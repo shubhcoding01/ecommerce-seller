@@ -29,4 +29,6 @@ public class WishlistController {
         Wishlist wishlist = wishlistService.getWishlistUserId(user);
         return ResponseEntity.ok(wishlist);
     }
+
+    public ResponseEntity<Wishlist> addProductToWishlist()
 }

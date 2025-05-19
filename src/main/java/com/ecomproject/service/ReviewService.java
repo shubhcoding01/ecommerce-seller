@@ -19,5 +19,5 @@ public interface ReviewService {
 
     void deleteReview(Long reviewId,Long userId);
 
-    Review getReviewById(Long reviewId,Long userId);
+    Review getReviewById(Long reviewId);
 }

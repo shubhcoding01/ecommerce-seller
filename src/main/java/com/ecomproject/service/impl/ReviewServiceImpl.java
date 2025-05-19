@@ -41,6 +41,7 @@ public class ReviewServiceImpl implements ReviewService {
 
         if(review.getUser().getId().equals(userId)) {
             review.setReviewText(reviewText);
+            review.setRating(rating);
         }
         return null;
     }

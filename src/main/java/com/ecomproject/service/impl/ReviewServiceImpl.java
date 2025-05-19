@@ -21,6 +21,7 @@ public class ReviewServiceImpl implements ReviewService {
         review.setProduct(product);
         review.setReviewText(req.getReviewText());
         review.setRating(req.getReviewRating());
+        review.setProductsImages();
         return null;
     }
 

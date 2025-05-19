@@ -44,4 +44,9 @@ public class ReviewServiceImpl implements ReviewService {
     public void deleteReview(Long reviewId, Long userId) {
 
     }
+
+    @Override
+    public Review getReviewById(Long reviewId) {
+        return null;
+    }
 }

@@ -45,7 +45,7 @@ public class ReviewServiceImpl implements ReviewService {
 
         Review review = getReviewById(reviewId);
         if (review.getUser().getId().equals(userId)) {
-            throw new Exception();
+            throw new Exception("You can't delete this review");
         }
     }
 

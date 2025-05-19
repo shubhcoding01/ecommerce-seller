@@ -15,7 +15,9 @@ import java.util.List;
 public class ReviewServiceImpl implements ReviewService {
     @Override
     public Review createReview(CreateReviewRequest req, User user, Product product) {
+
         Review review = new Review();
+        review.setUser(user);
         review.setProduct(product);
         return null;
     }

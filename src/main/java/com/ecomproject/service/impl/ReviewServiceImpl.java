@@ -43,7 +43,7 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public void deleteReview(Long reviewId, Long userId) {
 
-        Review review = getReviewById()
+        Review review = getReviewById(reviewId);
     }
 
     @Override

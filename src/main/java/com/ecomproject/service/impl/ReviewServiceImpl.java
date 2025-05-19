@@ -16,6 +16,7 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public Review createReview(CreateReviewRequest req, User user, Product product) {
         Review review = new Review();
+        review.setProduct(product);
         return null;
     }
 

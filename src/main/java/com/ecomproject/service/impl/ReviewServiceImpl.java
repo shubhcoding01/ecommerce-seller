@@ -37,6 +37,8 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public Review updateReview(Long reviewId, String reviewText, double rating, Long userId) {
+        Review review = getReviewById(reviewId);
+        
         return null;
     }
 

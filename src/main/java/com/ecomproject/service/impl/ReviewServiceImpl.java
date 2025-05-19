@@ -44,7 +44,9 @@ public class ReviewServiceImpl implements ReviewService {
     public void deleteReview(Long reviewId, Long userId) throws Exception {
 
         Review review = getReviewById(reviewId);
-        if (review.getUser().getId().equals(userId)) {}
+        if (review.getUser().getId().equals(userId)) {
+            throw new Exception();
+        }
     }
 
     @Override

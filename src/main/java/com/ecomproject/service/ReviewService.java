@@ -15,5 +15,5 @@ public interface ReviewService {
 
     List<Review> getReviewByProductId(Long productId);
 
-    Review updateReview(Long )
+    Review updateReview(Long reviewId,String reviewText,User user);
 }

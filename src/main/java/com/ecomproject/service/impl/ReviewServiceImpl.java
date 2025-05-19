@@ -41,7 +41,7 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public void deleteReview(Long reviewId, Long userId) {
+    public void deleteReview(Long reviewId, Long userId) throws Exception {
 
         Review review = getReviewById(reviewId);
     }

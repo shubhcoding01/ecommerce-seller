@@ -40,7 +40,7 @@ public class ReviewServiceImpl implements ReviewService {
         Review review = getReviewById(reviewId);
 
         if(review.getUser().getId().equals(userId)) {
-            
+            review.setReviewText(reviewText);
         }
         return null;
     }

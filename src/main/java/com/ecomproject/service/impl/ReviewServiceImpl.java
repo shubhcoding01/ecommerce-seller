@@ -42,8 +42,9 @@ public class ReviewServiceImpl implements ReviewService {
         if(review.getUser().getId().equals(userId)) {
             review.setReviewText(reviewText);
             review.setRating(rating);
+            return reviewRepository.save(review);
         }
-        return null;
+        throw new Exception("You are not allowed to update this review");
     }
 
     @Override

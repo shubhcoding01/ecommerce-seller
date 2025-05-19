@@ -19,6 +19,7 @@ public class ReviewServiceImpl implements ReviewService {
         Review review = new Review();
         review.setUser(user);
         review.setProduct(product);
+        review.setReviewText(req.getReviewText());
         return null;
     }
 

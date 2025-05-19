@@ -32,7 +32,7 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public List<Review> getReviewByProductId(Long productId) {
-        return List.of();
+        return ;
     }
 
     @Override

@@ -39,6 +39,9 @@ public class ReviewServiceImpl implements ReviewService {
     public Review updateReview(Long reviewId, String reviewText, double rating, Long userId) throws Exception {
         Review review = getReviewById(reviewId);
 
+        if(review.getUser().getId().equals(userId)) {
+            
+        }
         return null;
     }
 

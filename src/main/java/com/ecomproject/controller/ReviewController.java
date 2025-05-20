@@ -68,5 +68,7 @@ public class ReviewController {
             @RequestHeader("Authorization") String jwt) throws Exception {
 
         User user = userService.findUserByJwtToken(jwt);
+
+        reviewService.deleteReview();
     }
 }

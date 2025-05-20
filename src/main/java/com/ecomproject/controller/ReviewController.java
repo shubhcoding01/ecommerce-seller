@@ -49,4 +49,7 @@ public class ReviewController {
             @RequestBody CreateReviewRequest req,
             @PathVariable Long reviewId,
             @RequestHeader("Authorization") String jwt)
+        throws Exception {
+        
+    }
 }

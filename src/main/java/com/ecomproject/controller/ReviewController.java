@@ -4,6 +4,7 @@ import com.ecomproject.model.Product;
 import com.ecomproject.model.Review;
 import com.ecomproject.model.User;
 import com.ecomproject.request.CreateReviewRequest;
+import com.ecomproject.response.ApiResponse;
 import com.ecomproject.service.ProductService;
 import com.ecomproject.service.ReviewService;
 import com.ecomproject.service.UserService;
@@ -57,6 +58,12 @@ public class ReviewController {
                 req.getReviewText(),
                 req.getReviewRating(),
                 user.getId()
-        )
+        );
+        return ResponseEntity.ok(review);
     }
+
+    @DeleteMapping("/reviews/{reviewId}")
+    public ResponseEntity<ApiResponse> deleteReview(
+            
+    )
 }

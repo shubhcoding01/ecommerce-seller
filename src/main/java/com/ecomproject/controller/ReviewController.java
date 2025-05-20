@@ -38,7 +38,7 @@ public class ReviewController {
         Product product = productService.findProductById(productId);
 
         Review review = reviewService.createReview(
-                
+                req,
         )
     }
 }

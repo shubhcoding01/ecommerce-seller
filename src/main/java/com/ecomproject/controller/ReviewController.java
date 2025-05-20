@@ -29,6 +29,7 @@ public class ReviewController {
     @PostMapping("/products/{productId}/reviews")
     public ResponseEntity<Review> writeReview(
             @RequestBody Review review,
-            @PathVariable Long productId
+            @PathVariable Long productId,
+            @RequestHeader()
             ) {}
 }

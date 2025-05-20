@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
@@ -16,5 +18,5 @@ public class ReviewController {
     private final UserService userService;
     private final ProductService productService;
 
-    public ResponseEntity
+    public ResponseEntity<List<Review>> getAllReviews() {}
 }

@@ -25,6 +25,6 @@ public class ReviewController {
     public ResponseEntity<List<Review>> getReviewsByProductId(
             @PathVariable Long productId) {
 
-        List<Review> reviews = reviewService.getReviewByProductId()
+        List<Review> reviews = reviewService.getReviewByProductId(productId);
     }
 }

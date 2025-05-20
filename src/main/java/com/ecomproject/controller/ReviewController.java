@@ -26,5 +26,6 @@ public class ReviewController {
             @PathVariable Long productId) {
 
         List<Review> reviews = reviewService.getReviewByProductId(productId);
+        return ResponseEntity.ok(reviews);
     }
 }

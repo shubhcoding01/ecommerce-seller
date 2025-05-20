@@ -52,6 +52,11 @@ public class ReviewController {
         throws Exception {
         User user = userService.findUserByJwtToken(jwt);
 
-        Review review = reviewService.updateReview()
+        Review review = reviewService.updateReview(
+                reviewId,
+                req.getReviewText(),
+                req.getReviewRating(),
+                user.getId()
+        )
     }
 }

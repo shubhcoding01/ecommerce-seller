@@ -28,4 +28,6 @@ public class ReviewController {
         List<Review> reviews = reviewService.getReviewByProductId(productId);
         return ResponseEntity.ok(reviews);
     }
+
+    public ResponseEntity<Review> getReviewById(@PathVariable Long id) {}
 }

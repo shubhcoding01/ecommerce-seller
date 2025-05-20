@@ -30,6 +30,8 @@ public class ReviewController {
     public ResponseEntity<Review> writeReview(
             @RequestBody Review review,
             @PathVariable Long productId,
-            @RequestHeader()
-            ) {}
+            @RequestHeader("Authorization") String jwt) {
+
+        
+    }
 }

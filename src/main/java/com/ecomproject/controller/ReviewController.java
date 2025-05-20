@@ -65,6 +65,6 @@ public class ReviewController {
     @DeleteMapping("/reviews/{reviewId}")
     public ResponseEntity<ApiResponse> deleteReview(
             @PathVariable Long reviewId,
-            
+            @RequestHeader
     )
 }

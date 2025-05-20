@@ -23,5 +23,8 @@ public class ReviewController {
 
     @GetMapping("/products/{productId}/reviews")
     public ResponseEntity<List<Review>> getReviewsByProductId(
-            @PathVariable Long productId) {}
+            @PathVariable Long productId) {
+
+        List<Review>
+    }
 }

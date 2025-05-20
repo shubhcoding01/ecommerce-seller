@@ -70,6 +70,7 @@ public class ReviewController {
         User user = userService.findUserByJwtToken(jwt);
 
         reviewService.deleteReview(reviewId, user.getId());
-        
+        ApiResponse response = new ApiResponse();
+        response.setMessage("Review deleted");
     }
 }

@@ -44,5 +44,6 @@ public class ReviewController {
         return ResponseEntity.ok(review);
     }
 
+    @PatchMapping()
     public ResponseEntity<Review> updateReview()
 }

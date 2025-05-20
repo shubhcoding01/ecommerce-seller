@@ -50,6 +50,6 @@ public class ReviewController {
             @PathVariable Long reviewId,
             @RequestHeader("Authorization") String jwt)
         throws Exception {
-        
+        User user = userService.findUserByJwtToken(jwt);
     }
 }

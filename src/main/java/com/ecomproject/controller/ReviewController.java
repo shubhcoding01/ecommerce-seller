@@ -48,6 +48,5 @@ public class ReviewController {
     public ResponseEntity<Review> updateReview(
             @RequestBody CreateReviewRequest req,
             @PathVariable Long reviewId,
-            @RequestHeader("Authorization") 
-    )
+            @RequestHeader("Authorization") String jwt)
 }

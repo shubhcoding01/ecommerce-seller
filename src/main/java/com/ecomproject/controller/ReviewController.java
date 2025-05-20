@@ -1,5 +1,6 @@
 package com.ecomproject.controller;
 
+import com.ecomproject.model.Product;
 import com.ecomproject.model.Review;
 import com.ecomproject.model.User;
 import com.ecomproject.service.ProductService;
@@ -34,5 +35,6 @@ public class ReviewController {
             @RequestHeader("Authorization") String jwt) throws Exception {
 
         User user = userService.findUserByJwtToken(jwt);
+        Product product = productService.findProductById(productId);
     }
 }

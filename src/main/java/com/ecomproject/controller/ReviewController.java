@@ -65,5 +65,8 @@ public class ReviewController {
     @DeleteMapping("/reviews/{reviewId}")
     public ResponseEntity<ApiResponse> deleteReview(
             @PathVariable Long reviewId,
-            @RequestHeader("Authorization") String jwt)
+            @RequestHeader("Authorization") String jwt) {
+
+        User user = userService.findUserByJwtToken(jwt);
+    }
 }

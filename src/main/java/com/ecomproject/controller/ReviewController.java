@@ -69,6 +69,7 @@ public class ReviewController {
 
         User user = userService.findUserByJwtToken(jwt);
 
-        reviewService.deleteReview();
+        reviewService.deleteReview(reviewId, user.getId());
+        
     }
 }

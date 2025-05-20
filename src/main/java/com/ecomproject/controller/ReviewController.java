@@ -1,6 +1,7 @@
 package com.ecomproject.controller;
 
 import com.ecomproject.model.Review;
+import com.ecomproject.model.User;
 import com.ecomproject.service.ProductService;
 import com.ecomproject.service.ReviewService;
 import com.ecomproject.service.UserService;
@@ -32,6 +33,6 @@ public class ReviewController {
             @PathVariable Long productId,
             @RequestHeader("Authorization") String jwt) {
 
-        
+        User user = userService.findUserByJwtToken(jwt);
     }
 }

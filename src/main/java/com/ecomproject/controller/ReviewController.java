@@ -46,6 +46,6 @@ public class ReviewController {
 
     @PatchMapping("/reviews/{reviewId}")
     public ResponseEntity<Review> updateReview(
-            
+            @RequestBody CreateReviewRequest req,
     )
 }

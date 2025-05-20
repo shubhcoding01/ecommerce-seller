@@ -1,6 +1,7 @@
 package com.ecomproject.controller;
 
 import com.ecomproject.service.ReviewService;
+import com.ecomproject.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,4 +11,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class ReviewController {
     private final ReviewService reviewService;
+    private final UserService userService;
 }

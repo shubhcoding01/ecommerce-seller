@@ -31,7 +31,7 @@ public class ReviewController {
     public ResponseEntity<Review> writeReview(
             @RequestBody Review review,
             @PathVariable Long productId,
-            @RequestHeader("Authorization") String jwt) {
+            @RequestHeader("Authorization") String jwt) throws Exception {
 
         User user = userService.findUserByJwtToken(jwt);
     }

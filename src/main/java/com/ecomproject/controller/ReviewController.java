@@ -20,6 +20,6 @@ public class ReviewController {
     private final UserService userService;
     private final ProductService productService;
 
-    @GetMapping
+    @GetMapping("/products/{productId}/reviews")
     public ResponseEntity<List<Review>> getAllReviews() {}
 }

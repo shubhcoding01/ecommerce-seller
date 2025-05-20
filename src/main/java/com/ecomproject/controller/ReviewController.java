@@ -72,5 +72,6 @@ public class ReviewController {
         reviewService.deleteReview(reviewId, user.getId());
         ApiResponse response = new ApiResponse();
         response.setMessage("Review deleted");
+        return ResponseEntity.ok(response);
     }
 }

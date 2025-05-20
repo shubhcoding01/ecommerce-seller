@@ -40,6 +40,7 @@ public class ReviewController {
 
         Review review = reviewService.createReview(
                 req, user, product
-        )
+        );
+        return ResponseEntity.ok(review);
     }
 }

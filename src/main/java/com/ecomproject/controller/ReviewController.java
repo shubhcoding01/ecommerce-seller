@@ -36,5 +36,9 @@ public class ReviewController {
 
         User user = userService.findUserByJwtToken(jwt);
         Product product = productService.findProductById(productId);
+
+        Review review = reviewService.createReview(
+                
+        )
     }
 }

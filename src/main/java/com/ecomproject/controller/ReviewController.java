@@ -6,6 +6,7 @@ import com.ecomproject.service.ReviewService;
 import com.ecomproject.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,5 +20,6 @@ public class ReviewController {
     private final UserService userService;
     private final ProductService productService;
 
+    @GetMapping
     public ResponseEntity<List<Review>> getAllReviews() {}
 }

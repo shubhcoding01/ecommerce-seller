@@ -1,4 +1,6 @@
 package com.ecomproject.service.impl;
 
-public class CouponServiceImpl {
+import com.ecomproject.service.CouponService;
+
+public class CouponServiceImpl implements CouponService {
 }

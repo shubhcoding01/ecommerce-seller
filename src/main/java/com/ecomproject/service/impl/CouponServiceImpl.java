@@ -45,8 +45,11 @@ public class CouponServiceImpl implements CouponService {
 
             double discountedPrice = (cart.getTotalSellingPrice()*coupon.getDiscountPercent())/100;
             cart.setTotalSellingPrice(cart.getTotalSellingPrice()-discountedPrice);
+            cart.setCouponCode(code);
+            cartRepository.save(cart);
+            return cart;
         }
-        return null;
+        throw new Exception("Invalid Coupon !!");
     }
 
     @Override

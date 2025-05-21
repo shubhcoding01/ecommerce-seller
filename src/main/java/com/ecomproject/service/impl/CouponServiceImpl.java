@@ -5,6 +5,7 @@ import com.ecomproject.model.Coupon;
 import com.ecomproject.model.User;
 import com.ecomproject.repository.CartRepository;
 import com.ecomproject.repository.CouponRepository;
+import com.ecomproject.repository.UserRepository;
 import com.ecomproject.service.CouponService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ public class CouponServiceImpl implements CouponService {
 
     private final CouponRepository couponRepository;
     private final CartRepository cartRepository;
+    private final UserRepository userRepository;
 
     @Override
     public Cart applyCoupon(String code, double orderValue, User user) throws Exception {
@@ -39,6 +41,10 @@ public class CouponServiceImpl implements CouponService {
         && LocalDate.now().isBefore(coupon.getEndDate())) {
 
             user.getUsedCoupons().add(coupon);
+            userRepository.save(user);
+
+            double discountedPrice = (cart.getTotalSellingPrice()*coupon.getDiscountPercent())/100;
+            cart.setTotalSellingPrice(cart.getTotalSellingPrice()-discountedPrice);
         }
         return null;
     }

@@ -23,6 +23,10 @@ public class CouponServiceImpl implements CouponService {
         Coupon coupon = couponRepository.findByCode(code);
 
         Cart cart = cartRepository.findByUserId(user.getId());
+
+        if (coupon == null) {
+            
+        }
         return null;
     }
 

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface CouponService {
 
-    Cart applyCoupon(String code,double orderValue, User user);
+    Cart applyCoupon(String code,double orderValue, User user) throws Exception;
     Cart removeCoupon(String code,User user);
     Coupon findCouponById(Long id);
     Coupon createCoupon(Coupon coupon);

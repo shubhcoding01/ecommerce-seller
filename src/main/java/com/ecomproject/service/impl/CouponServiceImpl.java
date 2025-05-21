@@ -19,7 +19,7 @@ public class CouponServiceImpl implements CouponService {
     private final CartRepository cartRepository;
 
     @Override
-    public Cart applyCoupon(String code, double orderValue, User user) {
+    public Cart applyCoupon(String code, double orderValue, User user) throws Exception {
         Coupon coupon = couponRepository.findByCode(code);
 
         Cart cart = cartRepository.findByUserId(user.getId());
@@ -28,7 +28,7 @@ public class CouponServiceImpl implements CouponService {
             throw new Exception("Coupon Not Valid.!!");
         }
         if (user.getUsedCoupons().contains(coupon)) {
-            
+            throw new Exception("Coupon is already used !!");
         }
         return null;
     }

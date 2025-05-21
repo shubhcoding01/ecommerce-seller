@@ -9,6 +9,7 @@ import com.ecomproject.service.CouponService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -32,6 +33,11 @@ public class CouponServiceImpl implements CouponService {
         }
         if (orderValue < coupon.getMinimumOrderValue()) {
             throw new Exception("Valid for minimum order value.!!"+coupon.getMinimumOrderValue());
+        }
+        if (coupon.isActive() &&
+                LocalDate.now().isAfter(coupon.getStartDate())
+        && LocalDate.now().isBefore(coupon.getEndDate())) {
+            
         }
         return null;
     }

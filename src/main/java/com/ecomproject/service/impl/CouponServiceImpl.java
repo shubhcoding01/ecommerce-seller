@@ -3,6 +3,7 @@ package com.ecomproject.service.impl;
 import com.ecomproject.model.Cart;
 import com.ecomproject.model.Coupon;
 import com.ecomproject.model.User;
+import com.ecomproject.repository.CartRepository;
 import com.ecomproject.repository.CouponRepository;
 import com.ecomproject.service.CouponService;
 import lombok.RequiredArgsConstructor;
@@ -15,10 +16,13 @@ import java.util.List;
 public class CouponServiceImpl implements CouponService {
 
     private final CouponRepository couponRepository;
+    private final CartRepository cartRepository;
 
     @Override
     public Cart applyCoupon(String code, double orderValue, User user) {
         Coupon coupon = couponRepository.findByCode(code);
+
+        Cart cart = ;
         return null;
     }
 

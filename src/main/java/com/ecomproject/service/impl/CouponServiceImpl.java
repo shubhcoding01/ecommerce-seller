@@ -22,7 +22,7 @@ public class CouponServiceImpl implements CouponService {
     public Cart applyCoupon(String code, double orderValue, User user) {
         Coupon coupon = couponRepository.findByCode(code);
 
-        Cart cart = ;
+        Cart cart = cartRepository.findByUserId(user.getId());
         return null;
     }
 

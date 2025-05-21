@@ -37,7 +37,8 @@ public class CouponServiceImpl implements CouponService {
         if (coupon.isActive() &&
                 LocalDate.now().isAfter(coupon.getStartDate())
         && LocalDate.now().isBefore(coupon.getEndDate())) {
-            
+
+            user.getUsedCoupons().add(coupon);
         }
         return null;
     }

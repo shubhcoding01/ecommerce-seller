@@ -30,6 +30,9 @@ public class CouponServiceImpl implements CouponService {
         if (user.getUsedCoupons().contains(coupon)) {
             throw new Exception("Coupon is already used !!");
         }
+        if (orderValue < coupon.getMinimumOrderValue()) {
+            throw new Exception("Valid for minimum order value.!!"+coupon.getMinimumOrderValue());
+        }
         return null;
     }
 

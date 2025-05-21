@@ -25,6 +25,9 @@ public class CouponServiceImpl implements CouponService {
         Cart cart = cartRepository.findByUserId(user.getId());
 
         if (coupon == null) {
+            throw new Exception("Coupon Not Valid.!!");
+        }
+        if (user.getUsedCoupons().contains(coupon)) {
             
         }
         return null;

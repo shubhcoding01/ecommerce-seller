@@ -19,7 +19,7 @@ public class AdminCouponController {
     private final UserService userService;
     private final CartService cartService;
 
-    @PostMapping("/apply")
+    @PostMapping("/apply/coupon")
     public ResponseEntity<Cart> applyCoupon(
             @RequestParam String apply,
             @RequestParam String code,
@@ -53,4 +53,6 @@ public class AdminCouponController {
         couponService.deleteCoupon(id);
         return ResponseEntity.ok("Coupon deleted Successfully");
     }
+
+    public ResponseEntity<Coupon> createCoupon()
 }

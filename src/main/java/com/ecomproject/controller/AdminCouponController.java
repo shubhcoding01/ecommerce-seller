@@ -24,5 +24,7 @@ public class AdminCouponController {
             @RequestParam double orderValue,
             @RequestHeader("Authorization")
             String jwt
-    ) {}
+    ) throws Exception{
+        
+    }
 }

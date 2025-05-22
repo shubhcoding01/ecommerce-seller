@@ -47,5 +47,7 @@ public class AdminCouponController {
     }
 
     @DeleteMapping("/admin/delete/create")
-    public ResponseEntity<?> deleteCoupon()
+    public ResponseEntity<?> deleteCoupon(
+            @PathVariable Long id
+    ) {}
 }

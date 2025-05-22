@@ -1,5 +1,6 @@
 package com.ecomproject.controller;
 
+import com.ecomproject.service.CartService;
 import com.ecomproject.service.CouponService;
 import com.ecomproject.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -13,4 +14,5 @@ public class AdminCouponController {
 
     private final CouponService couponService;
     private final UserService userService;
+    private final CartService cartService;
 }

@@ -27,5 +27,10 @@ public class AdminCouponController {
             String jwt
     ) throws Exception{
         User user = userService.findUserByJwtToken(jwt);
+        Cart cart;
+
+        if (apply.equals("true")) {
+            cart = couponService.applyCoupon(code, orderValue, user);
+        }
     }
 }

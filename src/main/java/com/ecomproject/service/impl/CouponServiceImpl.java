@@ -81,7 +81,7 @@ public class CouponServiceImpl implements CouponService {
 
     @Override
     public List<Coupon> findAllCoupons() {
-        return List.of();
+        return couponRepository.findAll();
     }
 
     @Override

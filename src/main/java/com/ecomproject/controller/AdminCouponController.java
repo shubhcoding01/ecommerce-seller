@@ -56,5 +56,6 @@ public class AdminCouponController {
         return ResponseEntity.ok("Coupon deleted Successfully");
     }
 
+    @GetMapping("/admin/all")
     public ResponseEntity<List<Coupon>> getAllCoupons() {}
 }

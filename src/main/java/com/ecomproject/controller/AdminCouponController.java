@@ -1,6 +1,7 @@
 package com.ecomproject.controller;
 
 import com.ecomproject.model.Cart;
+import com.ecomproject.model.Coupon;
 import com.ecomproject.model.User;
 import com.ecomproject.service.CartService;
 import com.ecomproject.service.CouponService;
@@ -36,5 +37,10 @@ public class AdminCouponController {
             cart = couponService.applyCoupon(code, orderValue, user);
         }
         return ResponseEntity.ok(cart);
+    }
+
+    public ResponseEntity<Coupon> createCoupon(
+            @RequestBody Coupon coupon) {
+        
     }
 }

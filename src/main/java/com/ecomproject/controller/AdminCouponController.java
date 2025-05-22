@@ -32,5 +32,9 @@ public class AdminCouponController {
         if (apply.equals("true")) {
             cart = couponService.applyCoupon(code, orderValue, user);
         }
+        else {
+            cart = couponService.applyCoupon(code, orderValue, user);
+        }
+        return ResponseEntity.ok(cart);
     }
 }

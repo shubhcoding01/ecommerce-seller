@@ -62,8 +62,10 @@ public class CouponServiceImpl implements CouponService {
         Cart cart = cartRepository.findByUserId(user.getId());
 
         double discountedPrice = cart.getTotalSellingPrice()*coupon.getDiscountPercent();
-        cart.setTotalSellingPrice(cart.getTotalSellingPrice()-discountedPrice);
-        return null;
+        cart.setTotalSellingPrice(cart.getTotalSellingPrice()+discountedPrice);
+        cart.setCouponCode(null);
+
+        return cartRepository.save(cart);
     }
 
     @Override

@@ -9,7 +9,7 @@ import java.util.List;
 public interface CouponService {
 
     Cart applyCoupon(String code,double orderValue, User user) throws Exception;
-    Cart removeCoupon(String code,User user);
+    Cart removeCoupon(String code,User user) throws Exception;
     Coupon findCouponById(Long id);
     Coupon createCoupon(Coupon coupon);
     List<Coupon> findAllCoupons();

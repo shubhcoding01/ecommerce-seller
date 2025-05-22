@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
@@ -54,5 +56,5 @@ public class AdminCouponController {
         return ResponseEntity.ok("Coupon deleted Successfully");
     }
 
-    
+    public ResponseEntity<List<Coupon>> getAllCoupons() {}
 }

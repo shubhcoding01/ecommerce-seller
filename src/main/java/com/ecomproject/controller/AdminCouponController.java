@@ -7,6 +7,7 @@ import com.ecomproject.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,5 +19,7 @@ public class AdminCouponController {
     private final UserService userService;
     private final CartService cartService;
 
-    public ResponseEntity<Cart> applyCoupon(Cart cart) {}
+    public ResponseEntity<Cart> applyCoupon(
+            @RequestParam String apply,
+    ) {}
 }

@@ -41,6 +41,6 @@ public class AdminCouponController {
 
     public ResponseEntity<Coupon> createCoupon(
             @RequestBody Coupon coupon) {
-        
+        Coupon createdCoupon = couponService.createCoupon(coupon);
     }
 }

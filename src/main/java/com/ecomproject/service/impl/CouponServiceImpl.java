@@ -54,6 +54,8 @@ public class CouponServiceImpl implements CouponService {
 
     @Override
     public Cart removeCoupon(String code, User user) {
+        Coupon coupon = couponRepository.findByCode(code);
+        
         return null;
     }
 

@@ -57,5 +57,8 @@ public class AdminCouponController {
     }
 
     @GetMapping("/admin/all")
-    public ResponseEntity<List<Coupon>> getAllCoupons() {}
+    public ResponseEntity<List<Coupon>> getAllCoupons() {
+        List<Coupon> coupons = couponService.findAllCoupons();
+        return ResponseEntity.ok(coupons);
+    }
 }

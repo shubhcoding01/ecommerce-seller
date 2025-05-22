@@ -46,7 +46,7 @@ public class AdminCouponController {
         return ResponseEntity.ok(createdCoupon);
     }
 
-    @DeleteMapping("/admin/delete/create")
+    @DeleteMapping("/admin/delete/{id}")
     public ResponseEntity<?> deleteCoupon(
             @PathVariable Long id
     ) throws Exception {
@@ -54,5 +54,5 @@ public class AdminCouponController {
         return ResponseEntity.ok("Coupon deleted Successfully");
     }
 
-    public ResponseEntity<Coupon> createCoupon()
+    
 }

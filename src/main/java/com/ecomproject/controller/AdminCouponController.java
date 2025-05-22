@@ -23,6 +23,7 @@ public class AdminCouponController {
     @PostMapping("/apply")
     public ResponseEntity<Cart> applyCoupon(
             @RequestParam String apply,
+            @RequestParam String code,
             
     ) {}
 }

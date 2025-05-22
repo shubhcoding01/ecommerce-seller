@@ -51,5 +51,6 @@ public class AdminCouponController {
             @PathVariable Long id
     ) {
         couponService.deleteCoupon(id);
+        return ResponseEntity.ok("Coupon deleted Successfully");
     }
 }

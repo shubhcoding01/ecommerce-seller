@@ -59,6 +59,7 @@ public class CouponServiceImpl implements CouponService {
         if (coupon == null) {
             throw new Exception("Coupon Not Found..!!");
         }
+        Cart cart = cartRepository.findByUserId(user.getId());
         return null;
     }
 

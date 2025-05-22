@@ -24,6 +24,7 @@ public class AdminCouponController {
     public ResponseEntity<Cart> applyCoupon(
             @RequestParam String apply,
             @RequestParam String code,
+            @RequestParam double orderValue,
             
     ) {}
 }

@@ -60,6 +60,9 @@ public class CouponServiceImpl implements CouponService {
             throw new Exception("Coupon Not Found..!!");
         }
         Cart cart = cartRepository.findByUserId(user.getId());
+
+        double discountedPrice = cart.getTotalSellingPrice()*coupon.getDiscountPercent();
+        cart.setTotalSellingPrice(cart.getTotalSellingPrice()-discountedPrice);
         return null;
     }
 

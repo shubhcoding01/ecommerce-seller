@@ -6,10 +6,7 @@ import com.ecomproject.service.CouponService;
 import com.ecomproject.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -25,6 +22,7 @@ public class AdminCouponController {
             @RequestParam String apply,
             @RequestParam String code,
             @RequestParam double orderValue,
-            
+            @RequestHeader("Authorization")
+            String jwt
     ) {}
 }

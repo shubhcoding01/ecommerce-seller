@@ -55,8 +55,10 @@ public class CouponServiceImpl implements CouponService {
     @Override
     public Cart removeCoupon(String code, User user) {
         Coupon coupon = couponRepository.findByCode(code);
-        
-        if (coupon == null) {}
+
+        if (coupon == null) {
+            throw new Exception("Coupon Not Found..!!");
+        }
         return null;
     }
 

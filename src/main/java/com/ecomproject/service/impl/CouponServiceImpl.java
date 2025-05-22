@@ -56,6 +56,7 @@ public class CouponServiceImpl implements CouponService {
     public Cart removeCoupon(String code, User user) {
         Coupon coupon = couponRepository.findByCode(code);
         
+        if (coupon == null) {}
         return null;
     }
 

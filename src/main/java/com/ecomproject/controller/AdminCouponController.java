@@ -46,5 +46,6 @@ public class AdminCouponController {
         return ResponseEntity.ok(createdCoupon);
     }
 
+    @DeleteMapping("/admin/delete/create")
     public ResponseEntity<?> deleteCoupon()
 }

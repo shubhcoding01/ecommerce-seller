@@ -45,4 +45,6 @@ public class AdminCouponController {
         Coupon createdCoupon = couponService.createCoupon(coupon);
         return ResponseEntity.ok(createdCoupon);
     }
+
+    public ResponseEntity<?> deleteCoupon()
 }

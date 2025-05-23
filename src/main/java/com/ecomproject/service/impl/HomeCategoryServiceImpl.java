@@ -11,27 +11,24 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class HomeCategoryServiceImpl implements HomeCategoryService{
 
+
     @Override
     public HomeCategory createHomeCategory(HomeCategory homeCategory) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createHomeCategory'");
+        return null;
     }
 
     @Override
     public List<HomeCategory> createCategories(List<HomeCategory> homeCategories) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createCategories'");
+        return List.of();
     }
 
     @Override
     public HomeCategory updateHomeCategory(HomeCategory homeCategory, Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateHomeCategory'");
+        return null;
     }
 
     @Override
     public List<HomeCategory> getAllHomeCategories() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllHomeCategories'");
+        return List.of();
     }
 }

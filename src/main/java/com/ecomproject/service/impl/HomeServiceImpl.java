@@ -34,7 +34,10 @@ public class HomeServiceImpl implements HomeService{
                             homeCategory.getSection() == HomeCategorySection.ELECTRIC_CATEGORIES)
                 .collect(Collectors.toList());
 
-        
+        List<HomeCategory> dealCategories = allCategories.stream()
+                .filter(homeCategory ->
+                        homeCategory.getSection() == HomeCategorySection.DEALS)
+                .toList();
 
         return null;
     }

@@ -7,5 +7,5 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequiredArgsConstructor
 public class HomeCategoryController {
-    
+    private final HomeCategoryService homeCategoryService;
 }

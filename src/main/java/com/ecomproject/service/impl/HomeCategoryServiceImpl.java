@@ -32,6 +32,11 @@ public class HomeCategoryServiceImpl implements HomeCategoryService{
     public HomeCategory updateHomeCategory(HomeCategory homeCategory, Long id) throws Exception {
         HomeCategory existingCategory = homeCategoryRepository.findById(id)
                 .orElseThrow(() -> new Exception("HomeCategory not found with id: " + id));
+
+                if (homeCategory.getImage() != null) {
+                    existingCategory.setImage(homeCategory.getImage()); 
+                }
+                
     
                 return homeCategoryRepository.save(homeCategory);
             }

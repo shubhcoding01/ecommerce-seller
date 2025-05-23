@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ecomproject.model.Home;
+import com.ecomproject.model.HomeCategory;
 import com.ecomproject.repository.HomeCategoryRepository;
 import com.ecomproject.service.HomeCategoryService;
 

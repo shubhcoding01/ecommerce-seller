@@ -3,6 +3,7 @@ package com.ecomproject.service.impl;
 import java.util.List;
 
 import com.ecomproject.model.HomeCategory;
+import com.ecomproject.repository.HomeCategoryRepository;
 import com.ecomproject.service.HomeCategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class HomeCategoryServiceImpl implements HomeCategoryService{
 
+    private final HomeCategoryRepository homeCategoryRepository;
 
     @Override
     public HomeCategory createHomeCategory(HomeCategory homeCategory) {

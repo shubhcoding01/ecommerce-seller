@@ -30,7 +30,8 @@ public class HomeCategoryServiceImpl implements HomeCategoryService{
 
     @Override
     public HomeCategory updateHomeCategory(HomeCategory homeCategory, Long id) {
-        
+        HomeCategory existingCategory = homeCategoryRepository.findById(id)
+                .orElseThrow(() -> new Exception("HomeCategory not found with id: " + id));
     }
 
     @Override

@@ -56,6 +56,9 @@ public class HomeServiceImpl implements HomeService{
 
         }else createdDeals = dealRepository.findAll();
 
+        Home home = new Home();
+        home
+
         return null;
     }
 }

@@ -4,6 +4,7 @@ import com.ecomproject.domain.HomeCategorySection;
 import com.ecomproject.model.Deal;
 import com.ecomproject.model.Home;
 import com.ecomproject.model.HomeCategory;
+import com.ecomproject.repository.DealRepository;
 import com.ecomproject.service.HomeService;
 
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,8 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class HomeServiceImpl implements HomeService{
+
+    private final DealRepository dealRepository;
 
     @Override
     public Home createHomePageData(List<HomeCategory> allCategories) {

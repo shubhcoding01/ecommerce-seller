@@ -21,7 +21,7 @@ public class HomeCategoryServiceImpl implements HomeCategoryService{
 
     @Override
     public List<HomeCategory> createCategories(List<HomeCategory> homeCategories) {
-        return List.of();
+        return homeCategoryRepository.findAll();
     }
 
     @Override

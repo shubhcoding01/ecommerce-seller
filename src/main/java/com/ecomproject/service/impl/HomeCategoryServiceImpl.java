@@ -16,7 +16,7 @@ public class HomeCategoryServiceImpl implements HomeCategoryService{
 
     @Override
     public HomeCategory createHomeCategory(HomeCategory homeCategory) {
-        return null;
+        return homeCategoryRepository.save(homeCategory);
     }
 
     @Override

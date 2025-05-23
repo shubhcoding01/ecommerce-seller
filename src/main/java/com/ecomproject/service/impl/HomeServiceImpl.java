@@ -1,12 +1,14 @@
 package com.ecomproject.service.impl;
 
 import com.ecomproject.domain.HomeCategorySection;
+import com.ecomproject.model.Deal;
 import com.ecomproject.model.Home;
 import com.ecomproject.model.HomeCategory;
 import com.ecomproject.service.HomeService;
 
 import lombok.RequiredArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,6 +40,8 @@ public class HomeServiceImpl implements HomeService{
                 .filter(homeCategory ->
                         homeCategory.getSection() == HomeCategorySection.DEALS)
                 .toList();
+
+        List<Deal> createdDeals = new ArrayList<>();
 
         return null;
     }

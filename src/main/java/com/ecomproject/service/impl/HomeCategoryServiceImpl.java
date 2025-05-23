@@ -30,11 +30,11 @@ public class HomeCategoryServiceImpl implements HomeCategoryService{
 
     @Override
     public HomeCategory updateHomeCategory(HomeCategory homeCategory, Long id) {
-        return null;
+        
     }
 
     @Override
     public List<HomeCategory> getAllHomeCategories() {
-        return List.of();
+        return homeCategoryRepository.findAll();
     }
 }

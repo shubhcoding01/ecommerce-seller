@@ -1,5 +1,7 @@
 package com.ecomproject.service.impl;
 
-public class HomeServiceImpl {
+import com.ecomproject.service.HomeService;
+
+public class HomeServiceImpl implements HomeService{
 
 }

@@ -29,10 +29,12 @@ public class HomeCategoryServiceImpl implements HomeCategoryService{
     }
 
     @Override
-    public HomeCategory updateHomeCategory(HomeCategory homeCategory, Long id) {
+    public HomeCategory updateHomeCategory(HomeCategory homeCategory, Long id) throws Exception {
         HomeCategory existingCategory = homeCategoryRepository.findById(id)
                 .orElseThrow(() -> new Exception("HomeCategory not found with id: " + id));
-    }
+    
+                return homeCategoryRepository.save(homeCategory);
+            }
 
     @Override
     public List<HomeCategory> getAllHomeCategories() {

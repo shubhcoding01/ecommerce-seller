@@ -7,5 +7,5 @@ import com.ecomproject.model.HomeCategory;
 
 public interface HomeService {
 
-    public Home createHomePageData(List<HomeCategory> homeCategories, List<Banner> banners, List<Product> products);
+    public Home createHomePageData(List<HomeCategory> allCategories);
 }

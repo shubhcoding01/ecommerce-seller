@@ -4,7 +4,11 @@ import java.util.List;
 
 import com.ecomproject.model.HomeCategory;
 import com.ecomproject.service.HomeCategoryService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
+@RequiredArgsConstructor
 public class HomeCategoryServiceImpl implements HomeCategoryService{
 
     @Override

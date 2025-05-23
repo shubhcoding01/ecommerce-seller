@@ -24,7 +24,12 @@ public class HomeServiceImpl implements HomeService{
                         homeCategory.getSection() == HomeCategorySection.GRID)
                 .collect(Collectors.toList());
 
-        
+        List<HomeCategory> shopByCategories = allCategories.stream()
+                .filter(homeCategory ->
+                        homeCategory.getSection() == HomeCategorySection.SHOP_BY_CATEGORIES)
+                .collect(Collectors.toList());
+
+
 
         return null;
     }

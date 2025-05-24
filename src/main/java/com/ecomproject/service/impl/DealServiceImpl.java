@@ -39,7 +39,13 @@ public class DealServiceImpl implements DealService {
         HomeCategory homeCategory = homeCategoryRepository.findById(deal.getCategory().getId()).orElse(null);
 
         if (exitingDeal!=null){
-            exitingDeal.setDiscount(deal.getDiscount());
+            if (deal.getDiscount()!=null) {
+                exitingDeal.setDiscount(deal.getDiscount());
+            }
+            if (homeCategory!=null) {
+                exitingDeal.setCategory(homeCategory);
+            }
+            return dealRepository.save(exitingDeal);
         }
         return null;
     }

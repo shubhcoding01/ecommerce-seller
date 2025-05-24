@@ -17,7 +17,7 @@ public class DealServiceImpl implements DealService {
 
     @Override
     public List<Deal> getDeals() {
-        return List.of();
+        return dealRepository.findAll();
     }
 
     @Override

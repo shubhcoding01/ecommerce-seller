@@ -8,5 +8,6 @@ public interface DealService {
 
     List<Deal> getDeals();
     Deal createDeal(Deal deal);
-    
+    Deal updateDeal(Deal deal);
+    void deleteDeal(Deal deal);
 }

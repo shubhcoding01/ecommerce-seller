@@ -42,5 +42,6 @@ public class DealServiceImpl implements DealService {
     public void deleteDeal(Long id) {
         Deal deal = dealRepository.findById(id).orElseThrow(()->
                 new Exception("Deal Not Found..!!"));
+        dealRepository.delete(deal);
     }
 }

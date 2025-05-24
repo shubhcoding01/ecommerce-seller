@@ -13,6 +13,8 @@ public class AdminController {
 
     private final SellerService sellerService;
 
-    @PatchMapping()
-    public ResponseEntity<Seller> updateSellerStatus()
+    @PatchMapping("/seller/{id}/status/{status}")
+    public ResponseEntity<Seller> updateSellerStatus(
+            
+    )
 }

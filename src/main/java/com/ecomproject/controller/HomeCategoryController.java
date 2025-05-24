@@ -38,6 +38,8 @@ public class HomeCategoryController {
     throws Exception{
 
         List<HomeCategory> categories = homeCategoryService.getAllHomeCategories();
-        
+        return ResponseEntity.ok(categories);
     }
+
+    
 }

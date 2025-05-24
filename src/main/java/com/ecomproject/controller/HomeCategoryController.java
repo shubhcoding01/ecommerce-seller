@@ -36,6 +36,8 @@ public class HomeCategoryController {
     @GetMapping("/admin/home-category")
     public ResponseEntity<List<HomeCategory>> getHomeCategory()
     throws Exception{
+
+        List<HomeCategory> categories = homeCategoryService.getAllHomeCategories();
         
     }
 }

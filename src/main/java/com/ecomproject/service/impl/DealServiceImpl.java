@@ -34,7 +34,8 @@ public class DealServiceImpl implements DealService {
     }
 
     @Override
-    public Deal updateDeal(Deal deal) {
+    public Deal updateDeal(Deal deal,Long id) {
+        Deal exitingDeal = dealRepository.findById(id).orElse(null);
         return null;
     }
 

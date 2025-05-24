@@ -41,5 +41,5 @@ public class HomeCategoryController {
         return ResponseEntity.ok(categories);
     }
 
-    
+    public ResponseEntity<HomeCategory> updateHomeCategory()
 }

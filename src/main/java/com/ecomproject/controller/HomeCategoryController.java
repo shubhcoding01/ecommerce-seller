@@ -31,4 +31,6 @@ public class HomeCategoryController {
             return new ResponseEntity<>(home, HttpStatus.ACCEPTED);
     
     }
+
+    public ResponseEntity<List<HomeCategory>> getHomeCategory()
 }

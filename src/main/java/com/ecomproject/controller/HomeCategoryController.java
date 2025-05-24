@@ -42,5 +42,9 @@ public class HomeCategoryController {
     public ResponseEntity<HomeCategory> updateHomeCategory(
             @PathVariable Long id,
             @RequestBody HomeCategory homeCategory)
-            throws Exception {}
+            throws Exception {
+
+        HomeCategory updatedCategory = homeCategoryService.updateHomeCategory(homeCategory,id);
+        return ResponseEntity.ok(updatedCategory);
+    }
 }

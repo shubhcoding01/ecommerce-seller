@@ -37,7 +37,10 @@ public class DealServiceImpl implements DealService {
     public Deal updateDeal(Deal deal,Long id) {
         Deal exitingDeal = dealRepository.findById(id).orElse(null);
         HomeCategory homeCategory = homeCategoryRepository.findById(deal.getCategory().getId()).orElse(null);
-        
+
+        if (exitingDeal!=null){
+            exitingDeal.setDiscount(deal.getDiscount());
+        }
         return null;
     }
 

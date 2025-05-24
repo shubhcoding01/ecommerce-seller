@@ -47,7 +47,7 @@ public class DealServiceImpl implements DealService {
             }
             return dealRepository.save(exitingDeal);
         }
-        return null;
+        throw new Exception("Deal Not Found..!!");
     }
 
     @Override

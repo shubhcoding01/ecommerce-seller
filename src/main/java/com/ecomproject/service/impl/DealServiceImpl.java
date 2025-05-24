@@ -34,7 +34,7 @@ public class DealServiceImpl implements DealService {
     }
 
     @Override
-    public Deal updateDeal(Deal deal,Long id) {
+    public Deal updateDeal(Deal deal,Long id) throws Exception {
         Deal exitingDeal = dealRepository.findById(id).orElse(null);
         HomeCategory homeCategory = homeCategoryRepository.findById(deal.getCategory().getId()).orElse(null);
 

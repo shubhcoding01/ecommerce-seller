@@ -41,6 +41,5 @@ public class HomeCategoryController {
     @PatchMapping("/admin/home-category/{id}")
     public ResponseEntity<HomeCategory> updateHomeCategory(
             @PathVariable Long id,
-            
-    )
+            @RequestBody HomeCategory homeCategory) 
 }

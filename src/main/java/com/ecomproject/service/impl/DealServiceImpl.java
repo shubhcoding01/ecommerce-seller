@@ -39,7 +39,7 @@ public class DealServiceImpl implements DealService {
     }
 
     @Override
-    public void deleteDeal(Long id) {
+    public void deleteDeal(Long id) throws Exception {
         Deal deal = dealRepository.findById(id).orElseThrow(()->
                 new Exception("Deal Not Found..!!"));
         dealRepository.delete(deal);

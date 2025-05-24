@@ -20,5 +20,6 @@ public class AdminController {
             @PathVariable Long id,
             @PathVariable AccountStatus status) throws Exception {
         Seller updatedSeller = sellerService.updateSellerAccountStatus(id,status);
+        return ResponseEntity.ok(updatedSeller);
     }
 }

@@ -39,7 +39,7 @@ public class DealServiceImpl implements DealService {
     }
 
     @Override
-    public void deleteDeal(Deal deal) {
-
+    public void deleteDeal(Long id) {
+        Deal deal = dealRepository.findById(id).orElseThrow()
     }
 }

@@ -35,5 +35,12 @@ public class DealController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse> deleteDeal(
-            @PathVariable Long id) throws Exception {}
+            @PathVariable Long id) throws Exception {
+        dealService.deleteDeal(id);
+
+        ApiResponse apiResponse = new ApiResponse();
+        apiResponse.setMessage("Deal deleted successfully");
+
+        return new ResponseEntity<>(apiResponse, HttpStatus.ACCEPTED);
+    }
 }

@@ -1,6 +1,7 @@
 package com.ecomproject.controller;
 
 import com.ecomproject.model.Deal;
+import com.ecomproject.response.ApiResponse;
 import com.ecomproject.service.DealService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -31,4 +32,7 @@ public class DealController {
 
         return ResponseEntity.ok(updatedDeal);
     }
+
+    public ResponseEntity<ApiResponse> deleteDeal(
+            @PathVariable Long id) throws Exception {}
 }

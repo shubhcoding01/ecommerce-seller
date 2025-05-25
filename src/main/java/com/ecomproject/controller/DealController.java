@@ -24,6 +24,8 @@ public class DealController {
 
     @PatchMapping("/{id}")
     public ResponseEntity<Deal> updateDeal(
-            
-    )
+            @PathVariable Long id,
+            @RequestBody Deal deal) {
+        
+    }
 }

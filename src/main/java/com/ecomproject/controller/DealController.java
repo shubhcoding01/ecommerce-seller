@@ -25,7 +25,10 @@ public class DealController {
     @PatchMapping("/{id}")
     public ResponseEntity<Deal> updateDeal(
             @PathVariable Long id,
-            @RequestBody Deal deal) {
-        
+            @RequestBody Deal deal) throws Exception {
+
+        Deal updatedDeal = dealService.updateDeal(deal,id);
+
+        return ResponseEntity.ok(updatedDeal);
     }
 }

@@ -17,22 +17,19 @@ The backend of this project is developed using **Java 17** and **Spring Boot**, 
 | 📦 Maven                | Dependency and build management tool.                                           |
 
 ---
-
 ### 📁 Backend Project Structure
 
+```yaml
 backend/
-├── config/ # Security configuration (JWT, CORS, Roles)
-├── controller/ # REST APIs for buyer, seller, admin
-├── dto/ # Data Transfer Objects for API requests/responses
-├── exception/ # Global and custom exception handlers
-├── model/ # JPA Entity classes
-├── repository/ # JPA Repositories for DB operations
-├── service/ # Core business logic
-└── EcommerceApplication.java # Application entry point
+├── config/               # Security configuration (JWT, CORS, Roles)
+├── controller/           # REST APIs for buyer, seller, admin
+├── dto/                  # Data Transfer Objects for API requests/responses
+├── exception/            # Global and custom exception handlers
+├── model/                # JPA Entity classes (User, Product, Order, etc.)
+├── repository/           # JPA Repositories for DB operations
+├── service/              # Core business logic and service interfaces
+└── EcommerceApplication.java   # Main application entry point
 
-yaml
-Copy
-Edit
 
 ---
 
